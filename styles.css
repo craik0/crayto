@@ -91,27 +91,33 @@ h1 {
     text-decoration: none;
 }
 
-/* About Page */
+/* About Page Layout */
 .about-container {
     display: flex;
-    align-items: center;
+    align-items: stretch; /* Ensures the image stretches to match text */
     justify-content: center;
-    max-width: 800px;
+    max-width: 900px;
     margin: 50px auto;
     text-align: left;
     gap: 20px;
     flex-wrap: wrap;
 }
 
+/* Enlarged Image to Align with Text */
 .about-img {
-    width: 150px;
-    height: auto;
-    border-radius: 10px;
+    width: auto;
+    height: 100%; /* Makes it the same height as the text block */
+    max-height: 100%;
+    object-fit: cover; /* Ensures the image scales properly */
 }
 
+/* About Text */
 .about-text {
     flex: 1;
     text-align: left;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Spreads text evenly */
 }
 
 /* Playlists */
@@ -265,5 +271,11 @@ iframe {
 
     .blog-content {
         padding-left: 0;
+    }
+
+    /* Ensure About Image Resizes Properly */
+    .about-img {
+        height: auto;
+        max-width: 100%;
     }
 }
