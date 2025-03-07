@@ -1,0 +1,269 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+/* Body Styling */
+body {
+    background-color: white;
+    color: black;
+    text-align: center;
+    padding: 20px;
+}
+
+/* Navigation Bar */
+nav ul {
+    background: lightblue;
+    padding: 10px;
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+nav ul li {
+    display: inline;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+    padding: 10px 15px;
+}
+
+nav ul li a:hover {
+    background-color: black;
+    color: white;
+    border-radius: 5px;
+}
+
+/* Main Container */
+.container {
+    margin-top: 50px;
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Headings */
+h1 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+.subtitle {
+    font-size: 1.2rem;
+    color: #555;
+}
+
+/* Homepage Image */
+.homepage-img {
+    display: block;
+    margin: 20px auto;
+    max-width: 100%;
+    height: auto;
+}
+
+/* Happy Link */
+.happy-link {
+    margin-top: 20px;
+}
+
+.happy-link a {
+    display: inline-block;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: lightblue;
+    text-decoration: none;
+    padding: 12px 20px;
+    border: 2px solid lightblue;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+.happy-link a:hover {
+    background: lightblue;
+    color: black;
+    text-decoration: none;
+}
+
+/* About Page */
+.about-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-width: 800px;
+    margin: 50px auto;
+    text-align: left;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.about-img {
+    width: 150px;
+    height: auto;
+    border-radius: 10px;
+}
+
+.about-text {
+    flex: 1;
+    text-align: left;
+}
+
+/* Playlists */
+.playlist {
+    margin: 20px 0;
+}
+
+iframe {
+    max-width: 100%;
+}
+
+/* 404 Error Page */
+.error-container {
+    text-align: center;
+    margin-top: 100px;
+}
+
+.error-container button {
+    padding: 12px 20px;
+    background: lightblue;
+    border: none;
+    color: black;
+    font-size: 1rem;
+    cursor: pointer;
+    margin-top: 20px;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+.error-container button:hover {
+    background: black;
+    color: white;
+}
+
+/* BLOG PAGE STYLES */
+.blog-container {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    max-width: 900px;
+    margin: 50px auto;
+}
+
+/* Blog Sidebar */
+.blog-dates {
+    width: 200px;
+    text-align: left;
+}
+
+/* Blog Title "Blogs" - Made Bigger */
+.blog-dates h1 {
+    font-size: 1.8rem; /* Increased size */
+    font-weight: bold;
+}
+
+/* Blog List */
+.blog-dates ul {
+    list-style: none;
+    padding: 0;
+}
+
+.blog-dates ul li {
+    margin: 5px 0;
+}
+
+.blog-dates ul li a {
+    text-decoration: none;
+    color: lightblue;
+    transition: color 0.3s;
+}
+
+.blog-dates ul li a:hover {
+    color: black;
+}
+
+/* Blog Content - Left-Aligned */
+.blog-content {
+    flex-grow: 1;
+    padding-left: 20px;
+    text-align: left;
+}
+
+/* Blog Image */
+.blog-img {
+    display: block;
+    margin: 20px auto;
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+/* BACK Button (Same Style as "CLICK ON ME TO BE HAPPY") */
+.back-button {
+    margin-top: 20px;
+}
+
+.back-button a {
+    display: inline-block;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: lightblue;
+    text-decoration: none;
+    padding: 12px 20px;
+    border: 2px solid lightblue;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+.back-button a:hover {
+    background: lightblue;
+    color: black;
+    text-decoration: none;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .about-container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .about-text {
+        text-align: center;
+    }
+
+    nav ul {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .happy-link {
+        margin-top: 15px;
+    }
+
+    .happy-link a {
+        font-size: 1rem;
+        padding: 10px 15px;
+    }
+
+    .blog-container {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .blog-dates {
+        width: 100%;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    .blog-content {
+        padding-left: 0;
+    }
+}
