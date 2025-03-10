@@ -23,7 +23,7 @@ document.addEventListener("DOMContentLoaded", () => {
     setInterval(updateDateTime, 1000);
     updateDateTime(); // Run once immediately
 
-    // ✅ 3D Rotation for Blog Image with Smooth Movement and Momentum
+    // ✅ 3D Rotation for Blog Image (Desktop + Mobile Swipe Support)
     const blogImage3D = document.querySelector('.blog-3d');
 
     if (blogImage3D) {
@@ -36,6 +36,7 @@ document.addEventListener("DOMContentLoaded", () => {
         let velocityY = 0;
         let friction = 0.95;
 
+        // ✅ Mouse Drag (For Desktop)
         blogImage3D.addEventListener('mousedown', (e) => {
             e.preventDefault();
             blogDragging = true;
@@ -69,6 +70,37 @@ document.addEventListener("DOMContentLoaded", () => {
             requestAnimationFrame(applyMomentum);
         });
 
+        // ✅ Touch Swipe (For Mobile)
+        blogImage3D.addEventListener("touchstart", (e) => {
+            blogStartX = e.touches[0].clientX;
+            blogStartY = e.touches[0].clientY;
+            velocityX = 0;
+            velocityY = 0;
+        });
+
+        blogImage3D.addEventListener("touchmove", (e) => {
+            let moveX = e.touches[0].clientX;
+            let moveY = e.touches[0].clientY;
+            let deltaX = moveX - blogStartX;
+            let deltaY = moveY - blogStartY;
+
+            velocityX = deltaX * 0.5;
+            velocityY = deltaY * 0.5;
+
+            blogRotationY += velocityX;
+            blogRotationX -= velocityY;
+
+            blogImage3D.style.transform = `rotateX(${blogRotationX}deg) rotateY(${blogRotationY}deg)`;
+
+            blogStartX = moveX;
+            blogStartY = moveY;
+        });
+
+        blogImage3D.addEventListener("touchend", () => {
+            requestAnimationFrame(applyMomentum);
+        });
+
+        // ✅ Apply Momentum Effect (Keeps Rotation Going Smoothly)
         function applyMomentum() {
             if (Math.abs(velocityX) < 0.1 && Math.abs(velocityY) < 0.1) return;
 
