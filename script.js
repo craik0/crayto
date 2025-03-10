@@ -1,27 +1,22 @@
 document.addEventListener("DOMContentLoaded", () => {
-    // ✅ Timer Code (Now Works Alongside 3D)
+    // ✅ Timer Code (No Changes)
     function updateDateTime() {
         const now = new Date();
-        const day = String(now.getDate()).padStart(2, '0'); // Day (DD)
-        const month = String(now.getMonth() + 1).padStart(2, '0'); // Month (MM)
-        const year = now.getFullYear(); // Year (YYYY)
-        const hours = String(now.getHours()).padStart(2, '0'); // Hours (HH)
-        const minutes = String(now.getMinutes()).padStart(2, '0'); // Minutes (MM)
-        const seconds = String(now.getSeconds()).padStart(2, '0'); // Seconds (SS)
-
-        // Format: "DD MM YYYY HH:MM:SS"
+        const day = String(now.getDate()).padStart(2, '0');
+        const month = String(now.getMonth() + 1).padStart(2, '0');
+        const year = now.getFullYear();
+        const hours = String(now.getHours()).padStart(2, '0');
+        const minutes = String(now.getMinutes()).padStart(2, '0');
+        const seconds = String(now.getSeconds()).padStart(2, '0');
         const formattedDateTime = `${day} ${month} ${year} ${hours}:${minutes}:${seconds}`;
 
-        // Update the HTML
         const dateTimeElement = document.getElementById('date-time');
         if (dateTimeElement) {
             dateTimeElement.textContent = formattedDateTime;
         }
     }
-
-    // ✅ Update time every second (Runs Separately from 3D)
     setInterval(updateDateTime, 1000);
-    updateDateTime(); // Run once immediately
+    updateDateTime();
 
     // ✅ 3D Rotation for Blog Image (Desktop + Mobile Swipe Support)
     const blogImage3D = document.querySelector('.blog-3d');
@@ -70,8 +65,9 @@ document.addEventListener("DOMContentLoaded", () => {
             requestAnimationFrame(applyMomentum);
         });
 
-        // ✅ Touch Swipe (For Mobile)
+        // ✅ Touch Swipe (For Mobile, Prevents Scrolling)
         blogImage3D.addEventListener("touchstart", (e) => {
+            e.preventDefault(); // 🔥 Prevents page scrolling on touch start
             blogStartX = e.touches[0].clientX;
             blogStartY = e.touches[0].clientY;
             velocityX = 0;
@@ -79,6 +75,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
 
         blogImage3D.addEventListener("touchmove", (e) => {
+            e.preventDefault(); // 🔥 Prevents vertical scrolling while swiping
             let moveX = e.touches[0].clientX;
             let moveY = e.touches[0].clientY;
             let deltaX = moveX - blogStartX;
@@ -114,6 +111,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
             requestAnimationFrame(applyMomentum);
         }
+
+        // 🔥 Prevent page scrolling when swiping on mobile
+        document.body.addEventListener("touchmove", (e) => {
+            if (blogDragging) e.preventDefault();
+        }, { passive: false });
     }
 });
-
