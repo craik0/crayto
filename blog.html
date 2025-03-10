@@ -3,8 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>craiko.net - Blog</title>
+    <title>Blog - craiko.net</title>
     <link rel="stylesheet" href="styles.css">
+    <style>
+        .blog-container {
+            text-align: left; /* Aligns all content to the left */
+            max-width: 900px;
+            margin: 20px auto; /* Adds space at the top */
+            padding-top: 20px; /* Moves content down */
+        }
+
+        .blog-list {
+            list-style: none; /* Removes bullet points */
+            padding: 0;
+            margin-top: 15px; /* Moves blog links down */
+        }
+
+        .blog-list a {
+            text-decoration: none;
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: lightblue; /* Matches navbar color */
+        }
+
+        .blog-list a:hover {
+            text-decoration: underline;
+        }
+    </style>
 </head>
 <body>
     <nav>
@@ -16,13 +41,16 @@
         </ul>
     </nav>
 
+    <div id="date-time"></div> <!-- TIMER ADDED -->
+
     <main class="container blog-container">
-        <aside class="blog-dates">
-            <h1>Blogs</h1> <!-- Changed "Blog Archives" to "Blogs" & Made Bigger -->
-            <ul>
-                <li><a href="blog-march-2025.html">MARCH 2025</a></li>
-            </ul>
-        </aside>
+        <h1>Blogs</h1>
+
+        <div class="blog-list">
+            <a href="blog-march-2025.html">MARCH 2025</a>
+        </div>
     </main>
+
+    <script src="script.js"></script> <!-- SCRIPT ADDED -->
 </body>
 </html>
