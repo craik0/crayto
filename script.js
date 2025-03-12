@@ -1,5 +1,19 @@
 document.addEventListener("DOMContentLoaded", () => {
-    // ✅ Timer Code (No Changes)
+    // ✅ Create Timer & Message Container
+    const timeContainer = document.createElement("div");
+    timeContainer.id = "date-time-container";
+
+    const timeElement = document.createElement("span");
+    timeElement.id = "date-time";
+
+    const messageElement = document.createElement("span");
+    messageElement.id = "custom-message";
+    messageElement.textContent = "| GANTZ RECAP 1 OUT NOW"; // Ensures correct formatting
+
+    timeContainer.appendChild(timeElement);
+    timeContainer.appendChild(messageElement);
+    document.body.prepend(timeContainer);
+
     function updateDateTime() {
         const now = new Date();
         const day = String(now.getDate()).padStart(2, '0');
@@ -8,13 +22,11 @@ document.addEventListener("DOMContentLoaded", () => {
         const hours = String(now.getHours()).padStart(2, '0');
         const minutes = String(now.getMinutes()).padStart(2, '0');
         const seconds = String(now.getSeconds()).padStart(2, '0');
-        const formattedDateTime = `${day} ${month} ${year} ${hours}:${minutes}:${seconds}`;
 
-        const dateTimeElement = document.getElementById('date-time');
-        if (dateTimeElement) {
-            dateTimeElement.textContent = formattedDateTime;
-        }
+        const formattedDateTime = `${day} ${month} ${year} ${hours}:${minutes}:${seconds}`;
+        timeElement.textContent = formattedDateTime;
     }
+
     setInterval(updateDateTime, 1000);
     updateDateTime();
 
@@ -37,8 +49,8 @@ document.addEventListener("DOMContentLoaded", () => {
             blogDragging = true;
             blogStartX = e.clientX;
             blogStartY = e.clientY;
-            velocityX = 0; 
-            velocityY = 0; 
+            velocityX = 0;
+            velocityY = 0;
             blogImage3D.style.cursor = 'grabbing';
         });
 
