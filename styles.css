@@ -6,7 +6,7 @@
     font-family: Arial, sans-serif;
 }
 
-/* Date & Time Display (Left Below Navbar, Message on Right) */
+/* Date & Time Display (Below Navbar, Message on Right, Visible on Mobile) */
 #date-time-container {
     position: absolute;
     top: 70px; /* Below the navbar */
@@ -17,11 +17,19 @@
     display: flex;
     gap: 10px; /* Space between timer and message */
     align-items: center;
+    white-space: nowrap;
 }
 
-#date-time, #custom-message {
-    font-weight: bold;
-    color: black; /* Ensures both elements have the same color */
+/* Ensure it stays visible on small screens */
+@media (max-width: 768px) {
+    #date-time-container {
+        position: relative;
+        text-align: center;
+        width: 100%;
+        justify-content: center;
+        top: 10px; /* Adjust position for mobile */
+        left: 0;
+    }
 }
 
 /* Body Styling */
