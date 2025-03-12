@@ -1,18 +1,24 @@
 document.addEventListener("DOMContentLoaded", () => {
-    // ✅ Create Timer & Message Container
-    const timeContainer = document.createElement("div");
-    timeContainer.id = "date-time-container";
+    // ✅ Ensure Timer & Message Appear on All Devices
+    let timeContainer = document.getElementById("date-time-container");
 
-    const timeElement = document.createElement("span");
-    timeElement.id = "date-time";
+    if (!timeContainer) {
+        timeContainer = document.createElement("div");
+        timeContainer.id = "date-time-container";
 
-    const messageElement = document.createElement("span");
-    messageElement.id = "custom-message";
-    messageElement.textContent = "| GANTZ RECAP 1 OUT NOW"; // Ensures correct formatting
+        const timeElement = document.createElement("span");
+        timeElement.id = "date-time";
 
-    timeContainer.appendChild(timeElement);
-    timeContainer.appendChild(messageElement);
-    document.body.prepend(timeContainer);
+        const messageElement = document.createElement("span");
+        messageElement.id = "custom-message";
+        messageElement.textContent = "| MESSAGE HERE"; // Ensures correct formatting
+
+        timeContainer.appendChild(timeElement);
+        timeContainer.appendChild(messageElement);
+
+        // ✅ Ensure it appears below the navbar, even on mobile
+        document.body.prepend(timeContainer);
+    }
 
     function updateDateTime() {
         const now = new Date();
@@ -24,7 +30,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const seconds = String(now.getSeconds()).padStart(2, '0');
 
         const formattedDateTime = `${day} ${month} ${year} ${hours}:${minutes}:${seconds}`;
-        timeElement.textContent = formattedDateTime;
+        document.getElementById("date-time").textContent = formattedDateTime;
     }
 
     setInterval(updateDateTime, 1000);
