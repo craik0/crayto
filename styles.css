@@ -6,14 +6,22 @@
     font-family: Arial, sans-serif;
 }
 
-/* Date & Time Display (Below Nav Bar, Aligned with Left of Blue Bar) */
-#date-time {
+/* Date & Time Display (Left Below Navbar, Message on Right) */
+#date-time-container {
     position: absolute;
-    top: 70px; /* Moves it below the nav */
-    left: 20px; /* Adjust this value to align with the nav bar */
+    top: 70px; /* Below the navbar */
+    left: 20px;
     font-size: 14px;
     font-weight: bold;
     color: black;
+    display: flex;
+    gap: 10px; /* Space between timer and message */
+    align-items: center;
+}
+
+#date-time, #custom-message {
+    font-weight: bold;
+    color: black; /* Ensures both elements have the same color */
 }
 
 /* Body Styling */
@@ -71,12 +79,7 @@ h1 {
     margin-bottom: 10px;
 }
 
-.subtitle {
-    font-size: 1.2rem;
-    color: #555;
-}
-
-/* Homepage Image (Static, No 3D) */
+/* Homepage Image */
 .image-wrapper {
     display: flex;
     justify-content: center;
@@ -92,7 +95,7 @@ h1 {
     object-fit: cover;
 }
 
-/* BLOG IMAGE STYLING (Fixed to 268x268 with 3D Rotation) */
+/* BLOG IMAGE STYLING (3D Rotation) */
 .blog-image {
     width: 268px;
     height: 268px;
@@ -104,7 +107,7 @@ h1 {
     width: 100%;
     height: 100%;
     position: relative;
-    transform-style: preserve-3d; /* Ensures proper 3D rendering */
+    transform-style: preserve-3d;
     transition: transform 0.1s linear;
     cursor: grab;
 }
@@ -114,10 +117,6 @@ h1 {
     .blog-3d {
         cursor: pointer;
         touch-action: manipulation;
-    }
-
-    .blog-3d:active {
-        transform: rotateY(20deg) rotateX(10deg);
     }
 }
 
@@ -213,9 +212,9 @@ h1 {
 /* Wrap iframes in a responsive container */
 .playlist iframe {
     width: 100%;
-    max-width: 560px; /* Keeps the desktop size */
+    max-width: 560px;
     height: auto;
-    aspect-ratio: 16 / 9; /* Ensures proper video proportions */
+    aspect-ratio: 16 / 9;
 }
 
 /* Mobile Fixes (For Screens Smaller Than 768px) */
@@ -231,14 +230,6 @@ h1 {
     nav ul li {
         display: block;
         width: 100%;
-    }
-
-    /* Center Timer on Mobile */
-    #date-time {
-        position: static;
-        text-align: center;
-        margin-top: 10px;
-        font-size: 16px;
     }
 
     /* Make Main Content Fit */
