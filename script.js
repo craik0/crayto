@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
-    // ✅ Ensure Timer & Message Appear on All Devices
+    // ✅ Ensure Timer & Message Appear Below Navbar on All Devices
     let timeContainer = document.getElementById("date-time-container");
 
     if (!timeContainer) {
@@ -16,8 +16,13 @@ document.addEventListener("DOMContentLoaded", () => {
         timeContainer.appendChild(timeElement);
         timeContainer.appendChild(messageElement);
 
-        // ✅ Ensure it appears below the navbar, even on mobile
-        document.body.prepend(timeContainer);
+        // ✅ Place it directly below the navbar
+        const navbar = document.querySelector("nav");
+        if (navbar) {
+            navbar.insertAdjacentElement("afterend", timeContainer);
+        } else {
+            document.body.prepend(timeContainer);
+        }
     }
 
     function updateDateTime() {
