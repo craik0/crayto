@@ -6,28 +6,22 @@
     font-family: Arial, sans-serif;
 }
 
-/* Date & Time Display (Below Navbar, Message on Right, Visible on Mobile) */
+/* Date & Time Display (Left Below Navbar, Message on Right) */
 #date-time-container {
-    position: relative; /* Ensures correct placement */
-    margin-top: 10px; /* Creates space below the navbar */
+    position: absolute;
+    top: 70px; /* Below the navbar */
+    left: 20px;
     font-size: 14px;
     font-weight: bold;
     color: black;
     display: flex;
     gap: 10px; /* Space between timer and message */
     align-items: center;
-    justify-content: center;
-    white-space: nowrap;
 }
 
-/* Ensure it stays visible on mobile */
-@media (max-width: 768px) {
-    #date-time-container {
-        width: 100%;
-        text-align: center;
-        justify-content: center;
-        margin-top: 15px; /* Extra spacing for small screens */
-    }
+#date-time, #custom-message {
+    font-weight: bold;
+    color: black; /* Ensures both elements have the same color */
 }
 
 /* Body Styling */
