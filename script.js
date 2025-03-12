@@ -1,29 +1,18 @@
 document.addEventListener("DOMContentLoaded", () => {
-    // ✅ Ensure Timer & Message Appear Below Navbar on All Devices
-    let timeContainer = document.getElementById("date-time-container");
+    // ✅ Create Timer & Message Container
+    const timeContainer = document.createElement("div");
+    timeContainer.id = "date-time-container";
 
-    if (!timeContainer) {
-        timeContainer = document.createElement("div");
-        timeContainer.id = "date-time-container";
+    const timeElement = document.createElement("span");
+    timeElement.id = "date-time";
 
-        const timeElement = document.createElement("span");
-        timeElement.id = "date-time";
+    const messageElement = document.createElement("span");
+    messageElement.id = "custom-message";
+    messageElement.textContent = "| GANTZ RECAP 1 OUT NOW"; // Ensures correct formatting
 
-        const messageElement = document.createElement("span");
-        messageElement.id = "custom-message";
-        messageElement.textContent = "| MESSAGE HERE"; // Ensures correct formatting
-
-        timeContainer.appendChild(timeElement);
-        timeContainer.appendChild(messageElement);
-
-        // ✅ Place it directly below the navbar
-        const navbar = document.querySelector("nav");
-        if (navbar) {
-            navbar.insertAdjacentElement("afterend", timeContainer);
-        } else {
-            document.body.prepend(timeContainer);
-        }
-    }
+    timeContainer.appendChild(timeElement);
+    timeContainer.appendChild(messageElement);
+    document.body.prepend(timeContainer);
 
     function updateDateTime() {
         const now = new Date();
@@ -35,7 +24,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const seconds = String(now.getSeconds()).padStart(2, '0');
 
         const formattedDateTime = `${day} ${month} ${year} ${hours}:${minutes}:${seconds}`;
-        document.getElementById("date-time").textContent = formattedDateTime;
+        timeElement.textContent = formattedDateTime;
     }
 
     setInterval(updateDateTime, 1000);
