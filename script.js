@@ -1,37 +1,26 @@
 document.addEventListener("DOMContentLoaded", () => {
-    // ✅ Create Timer & Message Container
-    const timeContainer = document.createElement("div");
-    timeContainer.id = "date-time-container";
-
-    const timeElement = document.createElement("span");
-    timeElement.id = "date-time";
-
-    const messageElement = document.createElement("span");
-    messageElement.id = "custom-message";
-    messageElement.textContent = "| GANTZ RECAP 1 OUT NOW"; // Ensures correct formatting
-
-    timeContainer.appendChild(timeElement);
-    timeContainer.appendChild(messageElement);
-    document.body.prepend(timeContainer);
+    // Grab the existing timer element from your HTML
+    const timerContainer = document.getElementById("date-time");
+    if (!timerContainer) return; // Exit if the element isn't found
 
     function updateDateTime() {
         const now = new Date();
-        const day = String(now.getDate()).padStart(2, '0');
-        const month = String(now.getMonth() + 1).padStart(2, '0');
+        const day = String(now.getDate()).padStart(2, "0");
+        const month = String(now.getMonth() + 1).padStart(2, "0");
         const year = now.getFullYear();
-        const hours = String(now.getHours()).padStart(2, '0');
-        const minutes = String(now.getMinutes()).padStart(2, '0');
-        const seconds = String(now.getSeconds()).padStart(2, '0');
+        const hours = String(now.getHours()).padStart(2, "0");
+        const minutes = String(now.getMinutes()).padStart(2, "0");
+        const seconds = String(now.getSeconds()).padStart(2, "0");
 
-        const formattedDateTime = `${day} ${month} ${year} ${hours}:${minutes}:${seconds}`;
-        timeElement.textContent = formattedDateTime;
+        // Update the timer's innerHTML to include the live time, a pipe separator, and the hyperlink.
+        timerContainer.innerHTML = `${day} ${month} ${year} ${hours}:${minutes}:${seconds} | <a id="custom-message" href="https://www.youtube.com/watch?v=5DgK9Xb1jCo" target="_blank" rel="noopener noreferrer">Mario & Luigi: Brothership #17. OUT NOW!!!</a>`;
     }
 
     setInterval(updateDateTime, 1000);
     updateDateTime();
 
-    // ✅ 3D Rotation for Blog Image (Desktop + Mobile Swipe Support)
-    const blogImage3D = document.querySelector('.blog-3d');
+    // 3D Rotation for Blog Image (Desktop + Mobile Swipe Support)
+    const blogImage3D = document.querySelector(".blog-3d");
 
     if (blogImage3D) {
         let blogDragging = false;
@@ -43,18 +32,18 @@ document.addEventListener("DOMContentLoaded", () => {
         let velocityY = 0;
         let friction = 0.95;
 
-        // ✅ Mouse Drag (For Desktop)
-        blogImage3D.addEventListener('mousedown', (e) => {
+        // Mouse Drag (For Desktop)
+        blogImage3D.addEventListener("mousedown", (e) => {
             e.preventDefault();
             blogDragging = true;
             blogStartX = e.clientX;
             blogStartY = e.clientY;
             velocityX = 0;
             velocityY = 0;
-            blogImage3D.style.cursor = 'grabbing';
+            blogImage3D.style.cursor = "grabbing";
         });
 
-        window.addEventListener('mousemove', (e) => {
+        window.addEventListener("mousemove", (e) => {
             if (!blogDragging) return;
 
             const deltaX = e.clientX - blogStartX;
@@ -71,15 +60,15 @@ document.addEventListener("DOMContentLoaded", () => {
             blogImage3D.style.transform = `rotateX(${blogRotationX}deg) rotateY(${blogRotationY}deg)`;
         });
 
-        window.addEventListener('mouseup', () => {
+        window.addEventListener("mouseup", () => {
             blogDragging = false;
-            blogImage3D.style.cursor = 'grab';
+            blogImage3D.style.cursor = "grab";
             requestAnimationFrame(applyMomentum);
         });
 
-        // ✅ Touch Swipe (For Mobile, Prevents Scrolling)
+        // Touch Swipe (For Mobile, Prevents Scrolling)
         blogImage3D.addEventListener("touchstart", (e) => {
-            e.preventDefault(); // 🔥 Prevents page scrolling on touch start
+            e.preventDefault();
             blogStartX = e.touches[0].clientX;
             blogStartY = e.touches[0].clientY;
             velocityX = 0;
@@ -87,7 +76,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
 
         blogImage3D.addEventListener("touchmove", (e) => {
-            e.preventDefault(); // 🔥 Prevents vertical scrolling while swiping
+            e.preventDefault();
             let moveX = e.touches[0].clientX;
             let moveY = e.touches[0].clientY;
             let deltaX = moveX - blogStartX;
@@ -109,7 +98,7 @@ document.addEventListener("DOMContentLoaded", () => {
             requestAnimationFrame(applyMomentum);
         });
 
-        // ✅ Apply Momentum Effect (Keeps Rotation Going Smoothly)
+        // Apply Momentum Effect (Keeps Rotation Going Smoothly)
         function applyMomentum() {
             if (Math.abs(velocityX) < 0.1 && Math.abs(velocityY) < 0.1) return;
 
@@ -124,8 +113,8 @@ document.addEventListener("DOMContentLoaded", () => {
             requestAnimationFrame(applyMomentum);
         }
 
-        // 🔥 Prevent page scrolling when swiping on mobile
-        document.body.addEventListener("touchmove", (e) => {
+        // Restrict scroll-blocking only to the 3D image
+        blogImage3D.addEventListener("touchmove", (e) => {
             if (blogDragging) e.preventDefault();
         }, { passive: false });
     }
