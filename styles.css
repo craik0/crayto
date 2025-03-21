@@ -16,8 +16,6 @@
     color: black;
 }
 
-
-
 /* Body Styling */
 body {
     background-color: white;
@@ -181,6 +179,7 @@ h1 {
     flex-grow: 1;
     max-width: 600px;
 }
+
 .playlist-time {
     position: absolute;
     top: 70px; /* Moves it below the nav in playlists */
@@ -188,4 +187,80 @@ h1 {
     font-size: 14px;
     font-weight: bold;
     color: black;
+}
+
+/* MOBILE STYLES */
+@media (max-width: 768px) {
+    /* Adjust timer for mobile */
+    #date-time {
+        position: relative;
+        top: 0;
+        left: 0;
+        margin: 10px auto;
+        text-align: center;
+    }
+    
+    /* Stack navigation vertically */
+    nav ul {
+        flex-direction: column;
+        gap: 10px;
+        padding: 10px;
+    }
+    
+    nav ul li {
+        display: block;
+    }
+    
+    /* Container adjustments */
+    .container {
+        width: 100%;
+        margin-top: 20px;
+        padding: 0 10px;
+    }
+    
+    /* Responsive homepage image */
+    .image-wrapper {
+        width: 100%;
+        height: auto;
+        margin: 10px 0;
+    }
+    
+    .image-wrapper img {
+        width: 100%;
+        height: auto;
+    }
+    
+    /* Blog image adjustments */
+    .blog-image {
+        width: 100%;
+        height: auto;
+    }
+    
+    .blog-3d {
+        width: 100%;
+        height: auto;
+    }
+    
+    /* About page adjustments */
+    .about-content {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    
+    .about-img {
+        width: 100%;
+        max-width: 300px;
+        margin-bottom: 10px;
+    }
+    
+    .about-text {
+        max-width: 100%;
+    }
+    
+    /* Adjust happy link for mobile */
+    .happy-link a {
+        font-size: 1rem;
+        padding: 10px 15px;
+    }
 }
