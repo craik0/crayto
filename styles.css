@@ -230,15 +230,23 @@ h1 {
         height: auto;
     }
     
-    /* Blog image adjustments */
+    /* Blog image adjustments for mobile */
     .blog-image {
-        width: 100%;
-        height: auto;
+        width: 90%;
+        max-width: 268px;
+        height: 268px;
+        margin: 20px auto;
     }
-    
     .blog-3d {
         width: 100%;
-        height: auto;
+        height: 100%;
+    }
+    
+    /* YouTube playlist iframe adjustments for mobile */
+    .playlist iframe {
+        width: 100%;
+        height: calc((100vw - 20px) * 9 / 16);
+        max-width: 560px;
     }
     
     /* About page adjustments */
