@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const seconds = String(now.getSeconds()).padStart(2, "0");
 
         const defaultVideo = "https://youtu.be/bmaZdtWTpQo";
-        const livestreamURL = "https://youtube.com/live/XkMoc4ALM5o";
+        const livestreamURL = "https://youtube.com/live/OpXwxrBJ9To?feature=share";
         let videoLink = defaultVideo;
 
         try {
