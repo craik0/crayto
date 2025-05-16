@@ -1,56 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blog - craiko.net</title>
-    <link rel="stylesheet" href="styles.css">
-    <style>
-        .blog-container {
-            text-align: left; /* Aligns all content to the left */
-            max-width: 900px;
-            margin: 20px auto; /* Adds space at the top */
-            padding-top: 20px; /* Moves content down */
-        }
-
-        .blog-list {
-            list-style: none; /* Removes bullet points */
-            padding: 0;
-            margin-top: 15px; /* Moves blog links down */
-        }
-
-        .blog-list a {
-            text-decoration: none;
-            font-size: 1.2rem;
-            font-weight: bold;
-            color: lightblue; /* Matches navbar color */
-        }
-
-        .blog-list a:hover {
-            text-decoration: underline;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog - craiko.net</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .blog-container { text-align: left; max-width: 900px; margin: 20px auto; padding-top: 20px; }
+    .blog-list { list-style: none; padding: 0; margin-top: 15px; }
+    .blog-list a { text-decoration: none; font-size: 1.2rem; font-weight: bold; color: lightblue; }
+    .blog-list a:hover { text-decoration: underline; }
+  </style>
 </head>
 <body>
-    <nav>
-        <ul>
-            <li><a href="index.html">HOME</a></li>
-            <li><a href="playlists.html">PLAYLISTS</a></li>
-            <li><a href="blog.html">BLOG</a></li>
-            <li><a href="about.html">ABOUT</a></li>
-        </ul>
-    </nav>
+  <nav>
+    <ul>
+      <li><a href="index.html">HOME</a></li>
+      <li><a href="playlists.html">PLAYLISTS</a></li>
+      <li><a href="blog.html">BLOG</a></li>
+      <li><a href="about.html">ABOUT</a></li>
+    </ul>
+  </nav>
 
-    <div id="date-time"></div> <!-- TIMER ADDED -->
+  <div id="date-time"></div>
 
-    <main class="container blog-container">
-        <h1>Blogs</h1>
+  <main class="container blog-container">
+    <h1>Blogs</h1>
+    <div class="blog-list"><a href="blog-may-2025.html">MAY 2025</a></div>
+    <div class="blog-list"><a href="blog-march-2025.html">MARCH 2025</a></div>
+  </main>
 
-        <div class="blog-list">
-            <a href="blog-march-2025.html">MARCH 2025</a>
-        </div>
-    </main>
-
-    <script src="script.js"></script> <!-- SCRIPT ADDED -->
+  <script src="script.js"></script>
 </body>
 </html>
