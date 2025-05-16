@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const seconds = String(now.getSeconds()).padStart(2, "0");
 
         // Update the timer's innerHTML to include the live time, a pipe separator, and the hyperlink.
-        timerContainer.innerHTML = `${day} ${month} ${year} ${hours}:${minutes}:${seconds} | <a id="custom-message" href="https://www.youtube.com/watch?v=5DgK9Xb1jCo" target="_blank" rel="noopener noreferrer">Mario & Luigi: Brothership #17. OUT NOW!!!</a>`;
+        timerContainer.innerHTML = `${day} ${month} ${year} ${hours}:${minutes}:${seconds} | <a id="custom-message" href="https://youtu.be/bmaZdtWTpQo" target="_blank" rel="noopener noreferrer">Schedule 1 is PEAK gaming. OUT NOW!!!</a>`;
     }
 
     setInterval(updateDateTime, 1000);
