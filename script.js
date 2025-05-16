@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const timerContainer = document.getElementById("date-time");
     if (!timerContainer) return; // Exit if the element isn't found
 
-    function updateDateTime() {
+    async function updateDateTime() {
         const now = new Date();
         const day = String(now.getDate()).padStart(2, "0");
         const month = String(now.getMonth() + 1).padStart(2, "0");
@@ -12,8 +12,25 @@ document.addEventListener("DOMContentLoaded", () => {
         const minutes = String(now.getMinutes()).padStart(2, "0");
         const seconds = String(now.getSeconds()).padStart(2, "0");
 
-        // Update the timer's innerHTML to include the live time, a pipe separator, and the hyperlink.
-        timerContainer.innerHTML = `${day} ${month} ${year} ${hours}:${minutes}:${seconds} | <a id="custom-message" href="https://youtu.be/bmaZdtWTpQo" target="_blank" rel="noopener noreferrer">Schedule 1 is PEAK gaming. OUT NOW!!!</a>`;
+        const defaultVideo = "https://youtu.be/bmaZdtWTpQo";
+        const livestreamURL = "https://youtube.com/live/XkMoc4ALM5o";
+        let videoLink = defaultVideo;
+
+        try {
+            const res = await fetch("https://live-check-krn7.onrender.com/check-live");
+            const isLive = await res.json();
+            if (isLive) {
+                videoLink = livestreamURL;
+            }
+        } catch (e) {
+            console.error("Could not check live status:", e);
+        }
+
+        const label = (videoLink === livestreamURL)
+            ? `<span style="color:red;font-weight:bold;">🔴 LIVE NOW</span> | <a id="custom-message" href="${videoLink}" target="_blank" rel="noopener noreferrer">Click to join the stream</a>`
+            : `<a id="custom-message" href="${videoLink}" target="_blank" rel="noopener noreferrer">Schedule 1 is PEAK gaming. OUT NOW!!!</a>`;
+
+        timerContainer.innerHTML = `${day} ${month} ${year} ${hours}:${minutes}:${seconds} | ${label}`;
     }
 
     setInterval(updateDateTime, 1000);
