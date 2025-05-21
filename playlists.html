@@ -3,53 +3,75 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>craiko.net - Playlists</title>
+    <title>craiko.net - Works</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="icon" type="image/png" href="craiko.png">
     <meta property="og:image" content="craiko.png">
     <meta name="twitter:image" content="craiko.png">
+    <style>
+        .works-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            padding: 20px 0;
+            justify-content: space-evenly;
+        }
+
+        .work-item {
+            flex: 0 0 auto;
+            text-align: center;
+            width: 250px;
+        }
+
+        .work-item img {
+            width: 250px;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+
+        .work-item p {
+            margin-top: 10px;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        .works-row::-webkit-scrollbar {
+            display: none;
+        }
+    </style>
 </head>
 <body>
     <nav>
         <ul>
             <li><a href="index.html">HOME</a></li>
-            <li><a href="playlists.html">PLAYLISTS</a></li>
+            <li><a href="playlists.html">WORKS</a></li>
             <li><a href="blog.html">BLOG</a></li>
             <li><a href="about.html">ABOUT</a></li>
         </ul>
     </nav>
 
-    <div id="date-time" class="playlist-time"></div> <!-- TIMER IS ALREADY HERE -->
+    <div id="date-time" class="playlist-time"></div>
 
     <main class="container">
-        <h1>YouTube Playlists</h1>
+        <h1>Creative Works</h1>
 
-        <div class="playlist">
-            <h2>Playlist 1</h2>
-            <iframe width="560" height="315" 
-                src="https://www.youtube.com/embed/videoseries?si=BNslWYc_ScI1aK5G&amp;list=PLg88zgeABOv51wwtl8rxT70Fe7vKPpAsU" 
-                frameborder="0" allowfullscreen>
-            </iframe>
+        <div class="works-row">
+            <a href="5-44.html" class="work-item" style="text-decoration: none;">
+                <img src="me.jpg" alt="5:44 Cover">
+                <p>5:44</p>
+            </a>
+            <a href="https://www.youtube.com/@craiko678" class="work-item" style="text-decoration: none;">
+                <img src="YT.jpg" alt="YouTube Channel">
+                <p>YOUTUBE</p>
+            </a>
+            <a href="https://x.com/Craiko6" class="work-item" style="text-decoration: none;">
+                <img src="angel.jpg" alt="X Platform">
+                <p>X</p>
+            </a>
         </div>
-
-        <div class="playlist">
-            <h2>Playlist 2</h2>
-            <iframe width="560" height="315" 
-                src="https://www.youtube.com/embed/videoseries?si=057nGz5zNGt8D4xN&amp;list=PLg88zgeABOv5UpdcIJ-x04PLm4tOaa2v_" 
-                frameborder="0" allowfullscreen>
-            </iframe>
-        </div>
-
-        <div class="playlist">
-            <h2>Playlist 3</h2>
-            <iframe width="560" height="315" 
-                src="https://www.youtube.com/embed/videoseries?si=PhDKhqUkZqYuW8uH&amp;list=PLg88zgeABOv6f4L-n542lag07FJ1E66lr" 
-                frameborder="0" allowfullscreen>
-            </iframe>
-        </div>
-
     </main>
 
-    <script src="script.js"></script> <!-- SCRIPT ADDED -->
+    <script src="script.js"></script>
 </body>
 </html>
