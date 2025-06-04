@@ -12,23 +12,10 @@ document.addEventListener("DOMContentLoaded", () => {
         const minutes = String(now.getMinutes()).padStart(2, "0");
         const seconds = String(now.getSeconds()).padStart(2, "0");
 
-        const defaultVideo = "https://youtu.be/1IPtOGj1_uA";
-        const livestreamURL = "https://youtube.com/live/OpXwxrBJ9To?feature=share";
+        const defaultVideo = "https://youtu.be/bmaZdtWTpQo";
         let videoLink = defaultVideo;
 
-        try {
-            const res = await fetch("https://live-check-krn7.onrender.com/check-live");
-            const isLive = await res.json();
-            if (isLive) {
-                videoLink = livestreamURL;
-            }
-        } catch (e) {
-            console.error("Could not check live status:", e);
-        }
-
-        const label = (videoLink === livestreamURL)
-            ? `<span style="color:red;font-weight:bold;">🔴 LIVE NOW</span> | <a id="custom-message" href="${videoLink}" target="_blank" rel="noopener noreferrer">Click to join the stream</a>`
-            : `<a id="custom-message" href="${videoLink}" target="_blank" rel="noopener noreferrer">Bowser’s Fury Is Actually a Masterpiece. OUT NOW!!!</a>`;
+        const label = `<a id="custom-message" href="${defaultVideo}" target="_blank" rel="noopener noreferrer">Schedule 1 is PEAK gaming. OUT NOW!!!</a>`;
 
         timerContainer.innerHTML = `${day} ${month} ${year} ${hours}:${minutes}:${seconds} | ${label}`;
     }
