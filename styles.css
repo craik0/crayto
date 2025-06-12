@@ -1,26 +1,14 @@
-/*---------------------------------------------------------
-  Google Font
----------------------------------------------------------*/
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+/* Import professional sans-serif font */
+@import url('https://fonts.googleapis.com/css2?family=Helvetica+Neue:wght@300;400;700&display=swap');
 
-/*---------------------------------------------------------
-  CSS Variables (blue-oriented scheme, new font)
----------------------------------------------------------*/
 :root {
-  --primary-color: #007BFF;
-  --secondary-color: lightblue;
-  --text-color-light: #ffffff;
-  --text-color-dark: #333333;
-  --link-hover: #0056b3;
-  --bg-light: #f9f9f9;
-  --bg-white: #ffffff;
-  --shadow-light: rgba(0, 0, 0, 0.1);
-  --shadow-accent: rgba(0, 123, 255, 0.2);
+  --primary-color: #000000;
+  --secondary-color: #ffffff;
+  --accent-color: #888888;
+  --font-sans: 'Helvetica Neue', Arial, sans-serif;
 }
 
-/*---------------------------------------------------------
-  Global Reset & Body
----------------------------------------------------------*/
+/* Global Reset */
 * {
   margin: 0;
   padding: 0;
@@ -28,235 +16,228 @@
 }
 
 body {
-  font-family: 'Roboto', sans-serif;
-  background: var(--bg-light);
-  color: var(--text-color-dark);
+  font-family: var(--font-sans);
+  background-color: var(--secondary-color);
+  color: var(--primary-color);
   line-height: 1.6;
-  overflow-x: hidden;
-  animation: fadeIn 0.5s ease-out;
 }
 
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
-
-a {
-  text-decoration: none;
-  color: inherit;
-}
-
-/*---------------------------------------------------------
-  Navigation Bar (all pages) - links centered
----------------------------------------------------------*/
+/* Navigation Bar */
 nav {
-  background: var(--secondary-color);
-  padding: 10px 20px;
-  box-shadow: 0 2px 6px var(--shadow-light);
-  position: relative;
+  background-color: var(--primary-color);
+  padding: 1rem 2rem;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
 }
-
 nav ul {
-  list-style: none;
   display: flex;
   justify-content: center;
-  gap: 20px;
+  gap: 2rem;
+}
+nav ul li a {
+  color: var(--secondary-color);
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 1rem;
+  letter-spacing: 0.1rem;
+  transition: opacity 0.3s;
+}
+nav ul li a:hover {
+  opacity: 0.6;
 }
 
-nav a {
-  color: black;
-  font-weight: bold;
-  padding: 10px 15px;
-  border-radius: 5px;
-  transition: background 0.3s, color 0.3s;
-}
-
-nav a:hover {
-  background-color: black;
-  color: white;
-}
-
-/*---------------------------------------------------------
-  Date & Time (directly below nav)
----------------------------------------------------------*/
+/* Date & Time Bar */
 #date-time {
-  text-align: left;
-  font-size: 14px;
-  margin: 4px 20px; /* small gap below nav, aligned with nav’s left padding */
-  color: #555;
+  text-align: center;
+  font-size: 0.875rem;
+  padding: 0.5rem 0;
+  background-color: #f7f7f7;
+  color: #333333;
 }
 
-/*---------------------------------------------------------
-  Container Utility - restored original flow
----------------------------------------------------------*/
+/* Main Container */
 .container {
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 20px;
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 0 1rem;
 }
 
-/*---------------------------------------------------------
-  Headings (blue accent, centered)
----------------------------------------------------------*/
+/* Headings */
+h1, h2, h3 {
+  text-transform: uppercase;
+  letter-spacing: 0.2rem;
+  margin-bottom: 1rem;
+}
 h1 {
-  font-size: 2.4rem;
-  margin-bottom: 12px;
-  color: var(--primary-color);
-  animation: fadeInUp 0.6s ease-out;
-  text-align: center;
+  font-size: 2.5rem;
 }
-
 h2 {
-  font-size: 1.8rem;
-  margin-bottom: 8px;
-  color: var(--primary-color);
-  animation: fadeInUp 0.6s ease-out 0.1s;
-  text-align: center;
+  font-size: 2rem;
 }
-
-h3 {
-  font-size: 1.2rem;
-  margin-bottom: 16px;
-  color: #666;
-  animation: fadeInUp 0.6s ease-out 0.2s;
-  text-align: center;
-}
-
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/*---------------------------------------------------------
-  Subtitle (index page) centered
----------------------------------------------------------*/
 .subtitle {
-  text-align: center;
-  font-size: 1.1rem;
-  color: var(--text-color-dark);
-  margin-bottom: 24px;
+  font-size: 1.25rem;
+  color: var(--accent-color);
+  margin-bottom: 2rem;
 }
 
-/*---------------------------------------------------------
-  Buttons / Links
----------------------------------------------------------*/
-.happy-link {
-  margin-top: 24px;
-  text-align: center;
-}
-.happy-link a {
-  display: inline-block;
-  background: var(--primary-color);
-  color: var(--text-color-light);
-  padding: 12px 28px;
-  border-radius: 6px;
-  font-weight: 500;
-  transition: background 0.3s, transform 0.2s, box-shadow 0.2s;
-  box-shadow: 0 4px 8px var(--shadow-accent);
-}
-.happy-link a:hover {
-  background: var(--link-hover);
-  transform: translateY(-2px) scale(1.02);
-  box-shadow: 0 6px 12px var(--shadow-accent);
-}
-
-/*---------------------------------------------------------
-  Homepage Image (subtle float)
----------------------------------------------------------*/
+/* Hero Image */
 .image-wrapper {
   display: flex;
   justify-content: center;
-  align-items: center;
-  margin: 32px auto;
-  max-width: 620px;
+  margin: 2rem 0;
 }
 .image-wrapper img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Call-to-Action Button */
+.happy-link a {
+  display: inline-block;
+  text-transform: uppercase;
+  padding: 0.75rem 1.5rem;
+  border: 2px solid var(--primary-color);
+  color: var(--primary-color);
+  text-decoration: none;
+  font-weight: 700;
+  letter-spacing: 0.1rem;
+  transition: background-color 0.3s, color 0.3s;
+}
+.happy-link a:hover {
+  background-color: var(--primary-color);
+  color: var(--secondary-color);
+}
+
+/* Works Grid */
+.works-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+.work-item img {
   width: 100%;
   height: auto;
+  transition: transform 0.3s;
   border-radius: 8px;
-  box-shadow: 0 6px 12px var(--shadow-light);
-  animation: float 3s ease-in-out infinite;
+}
+.work-item img:hover {
+  transform: scale(1.05);
+}
+.work-item p {
+  margin-top: 0.5rem;
+  font-weight: 700;
+  letter-spacing: 0.05rem;
 }
 
-@keyframes float {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-6px); }
+/* Blog List (general for other pages) */
+.blog-list a {
+  display: block;
+  margin: 1rem 0;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05rem;
+  color: var(--primary-color);
+  transition: opacity 0.3s;
+}
+.blog-list a:hover {
+  opacity: 0.6;
 }
 
-/*---------------------------------------------------------
-  “Works” / Playlists Grid (cards with hover glow)
----------------------------------------------------------*/
-.works-row {
+/* About Page */
+.about-content {
   display: flex;
   flex-wrap: wrap;
-  gap: 20px;
-  padding: 20px 0;
+  gap: 2rem;
+  align-items: center;
+  margin-top: 2rem;
+}
+.about-img {
+  flex: 1 1 300px;
+  max-width: 300px;
+}
+.about-text {
+  flex: 2 1 600px;
+}
+.about-text p {
+  margin-bottom: 1rem;
 }
 
-.work-item {
-  background: var(--bg-white);
-  border-radius: 10px;
-  overflow: hidden;
-  box-shadow: 0 4px 8px var(--shadow-light);
-  text-align: center;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  nav ul {
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+  .about-content {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  /* Center everything and ensure fit on mobile */
+  .container,
+  .blog-container,
+  .about-content,
+  .blog-post {
+    text-align: center;
+  }
+
+  .works-row {
+    justify-items: center;
+    grid-template-columns: 1fr;
+  }
+
+  .blog-post p {
+    text-align: center;
+    margin: 1rem auto;
+  }
+
+  .image-wrapper img,
+  .about-img,
+  .blog-image {
+    margin-left: auto;
+    margin-right: auto;
+  }
 }
 
-.work-item:hover {
-  transform: translateY(-8px) scale(1.02);
-  box-shadow: 0 8px 16px var(--shadow-accent);
-}
-
-.work-item img {
-  width: 250px;
-  height: 250px;
-  object-fit: cover;
-  border-radius: 10px;
-}
-
-.work-item p {
-  margin-top: 10px;
-  font-weight: bold;
-  text-decoration: none;
-}
-
-/*---------------------------------------------------------
-  Blog Listing & 3D Image - Center month heading
----------------------------------------------------------*/
+/* Blog Pages: centered layout for blog content */
 .blog-container {
+  text-align: center;
   max-width: 900px;
-  margin: 0 auto;
-  padding: 20px 0;
+  margin: 20px auto;
+  padding-top: 20px;
 }
-
+.blog-container p {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto 1rem;
+}
 .blog-list {
-  margin: 16px 0;
-}
-
-.blog-list a {
-  color: var(--primary-color);
-  font-size: 1.2rem;
-  font-weight: 500;
-  transition: color 0.3s;
-  display: block;
+  list-style: none;
+  padding: 0;
+  margin-top: 15px;
   text-align: center;
 }
-
+.blog-list a {
+  display: inline-block;
+  text-decoration: none;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: lightblue;
+  margin: 0.5rem;
+}
 .blog-list a:hover {
-  color: var(--link-hover);
+  text-decoration: underline;
 }
 
-/* 3D Blog Image */
+/* Blog Image 3D Styling (for blog-may-2025.html) */
 .blog-image {
-  width: 300px;
-  height: 300px;
-  margin: 24px auto;
+  width: 268px;
+  height: 268px;
+  margin: 20px auto;
   perspective: 1000px;
 }
 .blog-3d {
@@ -264,7 +245,7 @@ h3 {
   height: 100%;
   position: relative;
   transform-style: preserve-3d;
-  transition: transform 0.15s linear;
+  transition: transform 0.1s linear;
   cursor: grab;
 }
 .blog-3d .front,
@@ -278,7 +259,9 @@ h3 {
   user-select: none;
   -webkit-user-drag: none;
   border-radius: 8px;
-  box-shadow: 0 4px 8px var(--shadow-light);
+}
+.blog-3d .front {
+  object-fit: cover;
 }
 .blog-3d .back {
   background-color: black;
@@ -286,77 +269,24 @@ h3 {
   pointer-events: none;
 }
 
-/*---------------------------------------------------------
-  About Page
----------------------------------------------------------*/
-.about-content {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 32px;
-  align-items: flex-start;
-  margin-top: 32px;
-}
-
-.about-img {
-  width: 100%;
-  max-width: 320px;
-  border-radius: 10px;
-  box-shadow: 0 6px 12px var(--shadow-light);
-  animation: float 4s ease-in-out infinite;
-}
-
-.about-text {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  gap: 16px;
-}
-
-.about-text p {
-  line-height: 1.6;
-}
-
-/* Smooth clickable cards for episodes/list items */
-.episode-list {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 14px;
-  margin-top: 32px;
-}
-
-.episode-list a {
-  width: 80%;
-  background: var(--bg-white);
-  border-radius: 8px;
-  padding: 12px;
-  box-shadow: 0 4px 10px var(--shadow-light);
+/* Episode Navigation Buttons center */
+.happy-link {
   text-align: center;
-  font-weight: 500;
-  color: var(--text-color-dark);
-  transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.2s;
+  margin-top: 2rem;
+}
+.happy-link a {
+  display: inline-block;
+  margin: 0 0.5rem;
 }
 
-.episode-list a:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 8px 16px var(--shadow-accent);
-  background: var(--bg-light);
+/* Blog Month Page Title Alignment and Post Styling */
+.container h1 {
+  text-align: center;
+  margin-bottom: 1rem;
 }
-
-/*---------------------------------------------------------
-  “5:44” Preformatted Story Box
----------------------------------------------------------*/
-pre {
-  white-space: pre-wrap;
+.blog-post p {
+  max-width: 800px;
+  margin: 1.5rem auto;
   text-align: left;
-  font-family: 'Courier New', monospace;
-  font-size: 16px;
-  line-height: 1.6;
-  background: var(--bg-white);
-  padding: 24px;
-  border-radius: 10px;
-  box-shadow: 0 6px 12px var(--shadow-light);
-  overflow-x: auto;
-  max-height: 70vh;
+  line-height: 1.8;
 }
