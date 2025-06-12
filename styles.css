@@ -201,6 +201,24 @@ h2 {
     margin-left: auto;
     margin-right: auto;
   }
+
+  /* Mobile Works Page Centering */
+  .works-row {
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    align-items: center !important;
+  }
+  .work-item {
+    width: auto !important;
+    margin: 1rem 0 !important;
+  }
+  .work-item img {
+    max-width: 250px;
+  }
+  .work-item p {
+    text-align: center !important;
+  }
 }
 
 /* Blog Pages: centered layout for blog content */
