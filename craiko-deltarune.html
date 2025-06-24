@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>craiko.net - Deltarune</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" type="image/png" href="craiko.png">
+  <meta property="og:image" content="craiko.png">
+  <meta name="twitter:image" content="craiko.png">
+  <!-- Press Start 2P for Deltarune vibe text -->
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+
+  <style>
+    /* Full-page background and apply Press Start 2P globally */
+    html, body {
+      height: 100%;
+      margin: 0;
+      font-family: 'Press Start 2P', monospace;
+    }
+    body {
+      background: url('delt.jpeg') no-repeat center center fixed;
+      background-size: cover;
+      color: white;
+      text-align: center;
+    }
+
+    /* Center date/time */
+    #date-time {
+      margin: 20px 0;
+      font-size: 1rem;
+    }
+
+    /* Nav styling */
+    nav ul {
+      display: flex;
+      justify-content: center;
+      list-style: none;
+      padding: 10px 0;
+      margin: 0;
+      background: rgba(0, 0, 0, 0.5);
+    }
+    nav ul li {
+      margin: 0 15px;
+    }
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      padding: 8px 12px;
+      display: inline-block;
+    }
+    nav ul li a:hover {
+      background-color: rgba(255, 255, 255, 0.2);
+    }
+
+    /* Transparent containers */
+    main.container,
+    .work-page {
+      background: transparent;
+      box-shadow: none;
+    }
+
+    /* Deltarune-vibe paragraph */
+    .work-page p {
+      max-width: 800px;
+      margin: 120px auto;
+      line-height: 1.6;
+      color: #00BFFF;
+      text-shadow: 0 0 6px rgba(0, 191, 255, 0.75);
+      font-size: 1rem;
+    }
+
+    /* Buttons keep original sans-serif font */
+    .buttons .btn {
+      font-family: sans-serif;
+      display: inline-block;
+      font-size: 1.2rem;
+      font-weight: bold;
+      color: #FFA500;
+      text-decoration: none;
+      padding: 12px 20px;
+      border: 2px solid #FFA500;
+      border-radius: 5px;
+      transition: background-color 0.3s, color 0.3s, transform 0.3s;
+      margin: 10px;
+    }
+    .buttons .btn:hover {
+      background: #FFA500;
+      color: black;
+      opacity: 0.8;
+      transform: translateY(-2px);
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <ul>
+      <li><a href="index.html">HOME</a></li>
+      <li><a href="playlists.html">WORKS</a></li>
+      <li><a href="blog.html">BLOG</a></li>
+      <li><a href="about.html">ABOUT</a></li>
+    </ul>
+  </nav>
+
+  <div id="date-time"></div>
+
+  <main class="container">
+    <section class="work-page">
+      <p>
+        This is my let's play of Deltarune by Toby Fox.<br>
+        I will be updating when I feel like it, join me for the adventures of Kris, Susie and Ralsei as they try to save the world from an otherworldly threat.
+      </p>
+
+      <div class="playlist" style="max-width: 800px; margin: 40px auto;"></div>
+
+      <div class="youtube-link" style="max-width: 800px; margin: 40px auto;">
+        <iframe width="100%" height="450" src="https://www.youtube.com/embed/videoseries?si=pHM2gF7cC2-HcNek&list=PLyml-zkfbWIoVnqnsE49U6k05RDsu3L-L" frameborder="0" allowfullscreen></iframe>
+      </div>
+
+      <div class="buttons" style="max-width: 800px; margin: 20px auto;">
+        <a href="select.html" class="btn">Episode select</a>
+        <a href="playlists.html" class="btn">BACK</a>
+      </div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

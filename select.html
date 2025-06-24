@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>craiko.net – Deltarune Episode Select</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" type="image/png" href="craiko.png">
+  <meta property="og:image" content="craiko.png">
+  <meta name="twitter:image" content="craiko.png">
+
+  <!-- Pixel-style font -->
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+
+  <style>
+    /* Full-page background */
+    html, body {
+      height: 100%;
+      margin: 0;
+    }
+    body {
+      background: url('delt.jpeg') no-repeat center center fixed;
+      background-size: cover;
+    }
+
+    /* Transparent container & centering */
+    main.container {
+      background: transparent;
+      box-shadow: none;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      box-sizing: border-box;
+    }
+
+    /* Nav override for contrast */
+    nav ul {
+      background: rgba(0, 0, 0, 0.5);
+    }
+    nav ul li a {
+      color: white;
+    }
+    nav ul li a:hover {
+      background-color: rgba(255,255,255,0.2);
+    }
+
+    /* Episode link with attached image */
+    .episode-link {
+      display: inline-flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 16px;
+      color: #00BFFF;                     /* Bright blue text */
+      font-family: 'Press Start 2P', monospace;
+      font-size: 1.5rem;
+      text-decoration: none;
+      background: rgba(0, 0, 0, 0.6);
+      padding: 20px 30px;
+      border-radius: 8px;
+    }
+    .episode-link:hover {
+      background: rgba(255, 255, 255, 0.2);
+    }
+    .episode-link img {
+      width: 150px;
+      height: auto;
+    }
+
+    /* Orange back button at bottom */
+    .back-btn {
+      margin-top: 40px;
+    }
+    .back-btn a {
+      display: inline-block;
+      background: orange;
+      color: white;
+      padding: 12px 24px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-family: 'Press Start 2P', monospace;
+      font-size: 1rem;
+    }
+    .back-btn a:hover {
+      opacity: 0.8;
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <ul>
+      <li><a href="index.html">HOME</a></li>
+      <li><a href="playlists.html">WORKS</a></li>
+      <li><a href="blog.html">BLOG</a></li>
+      <li><a href="about.html">ABOUT</a></li>
+    </ul>
+  </nav>
+
+  <div id="date-time"></div>
+
+  <main class="container">
+    <a
+      href="https://youtu.be/C17h5RfqNqQ?si=T43dcJNZKxg1BDY3"
+      target="_blank"
+      class="episode-link"
+    >
+      <img src="EP1.PNG" alt="Episode 1 Thumbnail">
+      SCHOOL CLOSET – DELTARUNE [1]
+    </a>
+
+    <div class="back-btn">
+      <a href="playlists.html">← BACK</a>
+    </div>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
