@@ -11,7 +11,6 @@
     from { opacity: 0; }
     to { opacity: 1; }
 }
-
 @keyframes slideUp {
     from { transform: translateY(10px); opacity: 0; }
     to { transform: translateY(0); opacity: 1; }
@@ -23,6 +22,7 @@ body {
     color: black;
     text-align: center;
     padding: 20px;
+    overflow-x: hidden;
     animation: fadeIn 0.5s ease-in-out;
 }
 
@@ -53,7 +53,8 @@ nav ul {
     margin: 0 auto;
 }
 nav ul li {
-    flex: 1;
+    display: inline-block;
+    flex: none;
     text-align: center;
 }
 nav ul li a {
@@ -241,6 +242,20 @@ h1 {
 
 /* Responsive Mobile Styles */
 @media (max-width: 768px) {
+    /* Stack works items vertically in one column */
+    .works-row {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+        padding: 20px 0;
+    }
+    .work-item {
+        width: 100%;
+        max-width: 268px;
+        margin-bottom: 20px;
+    }
+
     nav ul li a {
         padding: 8px 10px;
         font-size: 14px;
