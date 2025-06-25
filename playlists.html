@@ -39,6 +39,20 @@
         .works-row::-webkit-scrollbar {
             display: none;
         }
+
+        /* -- Mobile: stack in one column -- */
+        @media (max-width: 768px) {
+            .works-row {
+                /* one column grid */
+                grid-template-columns: 1fr;
+            }
+            .work-item {
+                /* let items size naturally within column */
+                width: 100%;
+                max-width: 250px;
+                margin: 0 auto 20px;
+            }
+        }
     </style>
 </head>
 <body>
