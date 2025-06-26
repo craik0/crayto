@@ -1,94 +1,113 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>craiko.net - Deltarune</title>
-  <link rel="stylesheet" href="styles.css">
-  <link rel="icon" type="image/png" href="craiko.png">
-  <meta property="og:image" content="craiko.png">
-  <meta name="twitter:image" content="craiko.png">
-  <!-- Press Start 2P for Deltarune vibe text -->
-  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/png" href="craiko.png"/>
+  <link rel="stylesheet" href="styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet" />
 
   <style>
-    /* Full-page background and apply Press Start 2P globally */
-    html, body {
-      height: 100%;
-      margin: 0;
-      font-family: 'Press Start 2P', monospace;
-    }
     body {
+      margin: 0;
       background: url('delt.jpeg') no-repeat center center fixed;
       background-size: cover;
-      color: white;
+      color: #00BFFF;
+      font-family: 'Press Start 2P', monospace;
       text-align: center;
+      overflow-x: hidden;
     }
 
-    /* Center date/time */
-    #date-time {
-      margin: 20px 0;
-      font-size: 1rem;
-    }
-
-    /* Nav styling */
     nav ul {
-      display: flex;
-      justify-content: center;
       list-style: none;
       padding: 10px 0;
       margin: 0;
-      background: rgba(0, 0, 0, 0.5);
+      display: flex;
+      justify-content: center;
+      background-color: rgba(0, 0, 0, 0.5);
     }
+
     nav ul li {
       margin: 0 15px;
     }
+
     nav ul li a {
-      color: white;
       text-decoration: none;
-      padding: 8px 12px;
+      color: white;
+      font-size: 0.7rem;
+      padding: 10px;
       display: inline-block;
+      transition: background 0.3s;
     }
+
     nav ul li a:hover {
-      background-color: rgba(255, 255, 255, 0.2);
+      background-color: rgba(255, 255, 255, 0.15);
     }
 
-    /* Transparent containers */
-    main.container,
-    .work-page {
-      background: transparent;
-      box-shadow: none;
+    #date-time {
+      margin: 20px 0;
+      font-size: 0.7rem;
+      color: white;
+      text-shadow: 0 0 4px cyan;
     }
 
-    /* Deltarune-vibe paragraph */
     .work-page p {
       max-width: 800px;
-      margin: 120px auto;
+      margin: 100px auto 40px;
+      font-size: 0.7rem;
       line-height: 1.6;
-      color: #00BFFF;
-      text-shadow: 0 0 6px rgba(0, 191, 255, 0.75);
-      font-size: 1rem;
+      text-shadow: 0 0 6px rgba(0, 191, 255, 0.8);
     }
 
-    /* Buttons keep original sans-serif font */
+    .youtube-link iframe {
+      width: 90%;
+      height: 400px;
+      border: none;
+      box-shadow: 0 0 10px #00BFFF;
+    }
+
+    .buttons {
+      margin: 40px auto;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
     .buttons .btn {
       font-family: sans-serif;
-      display: inline-block;
-      font-size: 1.2rem;
+      font-size: 1rem;
       font-weight: bold;
       color: #FFA500;
       text-decoration: none;
       padding: 12px 20px;
       border: 2px solid #FFA500;
       border-radius: 5px;
-      transition: background-color 0.3s, color 0.3s, transform 0.3s;
-      margin: 10px;
+      transition: all 0.3s ease-in-out;
+      background: transparent;
     }
+
     .buttons .btn:hover {
-      background: #FFA500;
+      background-color: #FFA500;
       color: black;
-      opacity: 0.8;
       transform: translateY(-2px);
+    }
+
+    @media (max-width: 600px) {
+      .work-page p {
+        padding: 0 20px;
+        font-size: 0.6rem;
+      }
+
+      .youtube-link iframe {
+        height: 240px;
+      }
+
+      .buttons .btn {
+        font-size: 0.8rem;
+        padding: 10px 16px;
+      }
     }
   </style>
 </head>
@@ -102,28 +121,36 @@
     </ul>
   </nav>
 
-  <div id="date-time"></div>
+  <div id="date-time">Loading time...</div>
 
   <main class="container">
     <section class="work-page">
-      <p>
-        This is my let's play of Deltarune by Toby Fox.<br>
-        I will be updating when I feel like it, join me for the adventures of Kris, Susie and Ralsei as they try to save the world from an otherworldly threat.
-      </p>
+ <p style="
+  font-family: 'Press Start 2P', monospace;
+  font-size: 0.7rem;
+  line-height: 1.6;
+  color: #00BFFF;
+  text-shadow: 0 0 6px rgba(0, 191, 255, 0.8);
+  max-width: 800px;
+  margin: 100px auto;
+">
+  This is my let's play of Deltarune by Toby Fox.<br />
+  I will be updating when I feel like it. Join me for the adventures of Kris, Susie, and Ralsei as they try to save the world from an otherworldly threat.
+</p>
 
-      <div class="playlist" style="max-width: 800px; margin: 40px auto;"></div>
-
-      <div class="youtube-link" style="max-width: 800px; margin: 40px auto;">
-        <iframe width="100%" height="450" src="https://www.youtube.com/embed/videoseries?si=pHM2gF7cC2-HcNek&list=PLyml-zkfbWIoVnqnsE49U6k05RDsu3L-L" frameborder="0" allowfullscreen></iframe>
+      <div class="youtube-link">
+        <iframe src="https://www.youtube.com/embed/videoseries?si=pHM2gF7cC2-HcNek&list=PLyml-zkfbWIoVnqnsE49U6k05RDsu3L-L" allowfullscreen></iframe>
       </div>
 
-      <div class="buttons" style="max-width: 800px; margin: 20px auto;">
-        <a href="select.html" class="btn">Episode select</a>
+      <div class="buttons">
+        <a href="select.html" class="btn">SELECT</a>
         <a href="playlists.html" class="btn">BACK</a>
       </div>
     </section>
   </main>
 
-  <script src="script.js"></script>
+  <script>
+    document.getElementById("date-time").textContent = new Date().toLocaleString();
+  </script>
 </body>
 </html>
