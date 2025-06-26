@@ -1,86 +1,127 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>craiko.net – Deltarune Episode Select</title>
-  <link rel="stylesheet" href="styles.css">
-  <link rel="icon" type="image/png" href="craiko.png">
-  <meta property="og:image" content="craiko.png">
-  <meta name="twitter:image" content="craiko.png">
-
-  <!-- Pixel-style font -->
-  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="icon" type="image/png" href="craiko.png" />
+  <meta property="og:image" content="craiko.png" />
+  <meta name="twitter:image" content="craiko.png" />
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet" />
 
   <style>
-    html, body {
-      height: 100%;
-      margin: 0;
-    }
     body {
+      margin: 0;
       background: url('delt.jpeg') no-repeat center center fixed;
       background-size: cover;
+      font-family: 'Press Start 2P', monospace;
+      color: #00BFFF;
+      text-align: center;
+      text-shadow: 0 0 6px rgba(0, 191, 255, 0.8);
+    }
+
+    nav ul {
+      list-style: none;
+      padding: 10px 0;
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      background-color: rgba(0, 0, 0, 0.5);
+    }
+
+    nav ul li {
+      margin: 0 15px;
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      color: white;
+      font-size: 0.7rem;
+      padding: 10px;
+      display: inline-block;
+      transition: background 0.3s;
+    }
+
+    nav ul li a:hover {
+      background-color: rgba(255, 255, 255, 0.15);
+    }
+
+    #date-time {
+      margin: 20px 0;
+      font-size: 0.7rem;
     }
 
     main.container {
       background: transparent;
       box-shadow: none;
-      height: 100%;
+      padding: 30px 10px;
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: center;
-      padding: 20px;
-      box-sizing: border-box;
-    }
-
-    nav ul {
-      background: rgba(0, 0, 0, 0.5);
-    }
-    nav ul li a {
-      color: white;
-    }
-    nav ul li a:hover {
-      background-color: rgba(255,255,255,0.2);
     }
 
     .episode-link {
-      display: inline-flex;
+      display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 16px;
+      gap: 12px;
       color: #00BFFF;
-      font-family: 'Press Start 2P', monospace;
-      font-size: 1.5rem;
       text-decoration: none;
-      background: rgba(0, 0, 0, 0.6);
+      font-size: 0.8rem;
       padding: 20px 30px;
+      background: rgba(0, 0, 0, 0.6);
       border-radius: 8px;
-      margin-bottom: 20px;
+      margin: 20px 0;
+      transition: background 0.3s ease;
     }
+
     .episode-link:hover {
-      background: rgba(255, 255, 255, 0.2);
+      background: rgba(255, 255, 255, 0.1);
     }
+
     .episode-link img {
-      width: 150px;
+      width: 160px;
       height: auto;
+      border: 2px solid #00BFFF;
+      box-shadow: 0 0 8px #00BFFF;
     }
 
     .back-btn {
       margin-top: 40px;
     }
+
     .back-btn a {
-      display: inline-block;
+      font-family: 'Press Start 2P', monospace;
+      font-size: 0.7rem;
       background: orange;
       color: white;
       padding: 12px 24px;
-      border-radius: 6px;
       text-decoration: none;
-      font-family: 'Press Start 2P', monospace;
-      font-size: 1rem;
+      border-radius: 6px;
+      display: inline-block;
+      transition: opacity 0.3s, transform 0.3s;
     }
+
     .back-btn a:hover {
       opacity: 0.8;
+      transform: translateY(-2px);
+    }
+
+    @media (max-width: 600px) {
+      .episode-link {
+        font-size: 0.6rem;
+        padding: 16px 20px;
+      }
+
+      .back-btn a {
+        font-size: 0.6rem;
+        padding: 10px 20px;
+      }
+
+      .episode-link img {
+        width: 130px;
+      }
     }
   </style>
 </head>
@@ -94,7 +135,7 @@
     </ul>
   </nav>
 
-  <div id="date-time"></div>
+  <div id="date-time">Loading time...</div>
 
   <main class="container">
     <a href="https://youtu.be/C17h5RfqNqQ?si=T43dcJNZKxg1BDY3" target="_blank" class="episode-link">
@@ -107,11 +148,18 @@
       LEGENDS – DELTARUNE [2]
     </a>
 
+    <a href="https://youtu.be/S5v9LLYd_kE" target="_blank" class="episode-link">
+      <img src="IMG_2161.jpg" alt="Episode 3 Thumbnail">
+      MAZE OF DEATH – DELTARUNE [3]
+    </a>
+
     <div class="back-btn">
-      <a href="playlists.html">← BACK</a>
+      <a href="craiko-deltarune.html">← BACK</a>
     </div>
   </main>
 
-  <script src="script.js"></script>
+  <script>
+    document.getElementById("date-time").textContent = new Date().toLocaleString();
+  </script>
 </body>
 </html>
