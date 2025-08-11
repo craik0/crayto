@@ -19,13 +19,25 @@
       text-shadow: 0 0 6px rgba(0, 191, 255, 0.8);
     }
 
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+    }
     nav ul {
       list-style: none;
       padding: 10px 0;
-      margin: 0;
+      margin: 8px auto;
       display: flex;
       justify-content: center;
-      background-color: rgba(0, 0, 0, 0.5);
+      background: linear-gradient(180deg, rgba(0,191,255,0.22), rgba(0,191,255,0.10));
+      background-color: rgba(0,0,0,0.35);
+      border: 1px solid rgba(0,191,255,0.35);
+      border-radius: 12px;
+      backdrop-filter: blur(10px) saturate(150%);
+      -webkit-backdrop-filter: blur(10px) saturate(150%);
+      box-shadow: 0 8px 28px rgba(0,0,0,0.25), inset 0 1px 0 rgba(255,255,255,0.18);
+      width: min(980px, calc(100% - 16px));
     }
 
     nav ul li {
@@ -38,11 +50,14 @@
       font-size: 0.7rem;
       padding: 10px;
       display: inline-block;
-      transition: background 0.3s;
+      transition: background-color 0.2s cubic-bezier(.2,.8,.2,1), color 0.2s cubic-bezier(.2,.8,.2,1), transform 0.2s cubic-bezier(.2,.8,.2,1);
+      border-radius: 8px;
     }
 
     nav ul li a:hover {
-      background-color: rgba(255, 255, 255, 0.15);
+      background-color: rgba(0,191,255,0.25);
+      color: #fff;
+      transform: translateY(-1px);
     }
 
     #date-time {
@@ -90,21 +105,44 @@
     }
 
     .back-btn a {
-      font-family: 'Press Start 2P', monospace;
-      font-size: 0.7rem;
-      background: orange;
-      color: white;
-      padding: 12px 24px;
-      text-decoration: none;
-      border-radius: 6px;
-      display: inline-block;
-      transition: opacity 0.3s, transform 0.3s;
+font-family: sans-serif;
+font-size: 1rem;
+font-weight: 700;
+background: linear-gradient(180deg, rgba(0,191,255,0.35), rgba(0,191,255,0.20)); /* blue glass gradient */
+background-color: rgba(0,191,255,0.18); /* blue glass fallback */
+color: #fff; /* white text */
+padding: 12px 24px;
+text-decoration: none;
+border-radius: 10px;
+border: 1px solid rgba(0,191,255,0.35);
+box-shadow: 0 6px 24px rgba(0,0,0,0.12), inset 0 1px 0 rgba(255,255,255,0.25);
+backdrop-filter: blur(10px) saturate(140%);
+-webkit-backdrop-filter: blur(10px) saturate(140%);
+transition: transform 0.2s cubic-bezier(.2,.8,.2,1),
+            box-shadow 0.2s cubic-bezier(.2,.8,.2,1),
+            background-color 0.2s cubic-bezier(.2,.8,.2,1),
+            color 0.2s cubic-bezier(.2,.8,.2,1);
+display: inline-block;
     }
 
-    .back-btn a:hover {
-      opacity: 0.8;
-      transform: translateY(-2px);
+    .back-btn a::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      background: linear-gradient(180deg, rgba(255,255,255,0.6), rgba(255,255,255,0) 42%);
+      pointer-events: none;
+      mix-blend-mode: screen;
     }
+    .back-btn a:hover {
+      background-color: var(--accent);
+      color: #fff; /* keep white text on hover */
+      transform: translateY(-2px);
+      border-color: var(--accent);
+      box-shadow: 0 8px 30px rgba(0,0,0,0.16), 0 0 0 2px rgba(0,191,255,0.15);
+    }
+    .back-btn a:active { transform: translateY(0); opacity: 0.95; box-shadow: 0 4px 16px rgba(0,0,0,0.14); }
+    .back-btn a:focus-visible { outline: none; box-shadow: 0 0 0 3px rgba(0,191,255,0.35), 0 6px 24px rgba(0,0,0,0.12); }
 
     @media (max-width: 600px) {
       .episode-link {
@@ -137,12 +175,12 @@
 
   <main class="container">
     <div class="episode-link">
-      <iframe width="560" height="315" src="https://www.youtube.com/embed/duns8AY4JEg?si=5q-IHuOnEplVH76I" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/duns8AY4JEg?si=5q-IHuOnEplVH76I" title="YouTube video player" loading="lazy" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
     </div>
 
 
     <div class="back-btn">
-      <a href="craiko-deltarune.html">← BACK</a>
+      <a href="craiko-deltarune.html" class="button-link">← BACK</a>
     </div>
   </main>
 

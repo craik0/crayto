@@ -1,40 +1,103 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>craiko.net - Home</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="icon" type="image/png" href="craiko.png">
-    <meta property="og:image" content="craiko.png">
-    <meta name="twitter:image" content="craiko.png">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="Craiko — video essays, Deltarune Let's Plays, and more. Perfection is possible.">
+  <title>craiko.net - Home</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="icon" type="image/png" href="craiko.png" />
+  <style>
+    /* Page-specific: Blue glass button with white text */
+    .happy-link a {
+      font-family: sans-serif;
+      font-size: 1rem;
+      font-weight: 700;
+      color: #fff; /* white text */
+      text-decoration: none;
+      padding: 12px 20px;
+      border: 1px solid rgba(0,191,255,0.35); /* blue-tinted border */
+      border-radius: 10px;
+      background: linear-gradient(180deg, rgba(0,191,255,0.35), rgba(0,191,255,0.20)); /* blue glass gradient */
+      background-color: rgba(0,191,255,0.18); /* blue glass fallback */
+      box-shadow: 0 6px 24px rgba(0,0,0,0.12), inset 0 1px 0 rgba(255,255,255,0.25);
+      backdrop-filter: blur(10px) saturate(140%);
+      -webkit-backdrop-filter: blur(10px) saturate(140%);
+      cursor: pointer;
+      position: relative;
+      display: inline-block;
+      transition: transform 0.2s cubic-bezier(.2,.8,.2,1),
+                  box-shadow 0.2s cubic-bezier(.2,.8,.2,1),
+                  background-color 0.2s cubic-bezier(.2,.8,.2,1),
+                  color 0.2s cubic-bezier(.2,.8,.2,1);
+    }
+    .happy-link a::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      background: linear-gradient(180deg, rgba(255,255,255,0.6), rgba(255,255,255,0) 42%);
+      pointer-events: none;
+      mix-blend-mode: screen;
+    }
+    .happy-link a:hover {
+      background-color: var(--accent);
+      color: #fff; /* keep white text on hover */
+      transform: translateY(-2px);
+      border-color: var(--accent);
+      box-shadow: 0 8px 30px rgba(0,0,0,0.16), 0 0 0 2px rgba(0,191,255,0.15);
+    }
+    .happy-link a:active {
+      transform: translateY(0);
+      opacity: 0.95;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.14);
+    }
+    .happy-link a:focus-visible {
+      outline: none;
+      box-shadow: 0 0 0 3px rgba(0,191,255,0.35), 0 6px 24px rgba(0,0,0,0.12);
+    }
+  </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "craiko.net",
+    "url": "https://craiko.net/",
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": "https://craiko.net/blog.html?q={search_term_string}",
+      "query-input": "required name=search_term_string"
+    }
+  }
+  </script>
 </head>
 <body>
-    <nav>
-        <ul>
-            <li><a href="index.html">HOME</a></li>
-            <li><a href="playlists.html">WORKS</a></li>
-            <li><a href="blog.html">BLOG</a></li>
-            <li><a href="about.html">ABOUT</a></li>
-        </ul>
-    </nav>
+  <nav>
+    <ul>
+      <li><a href="index.html">HOME</a></li>
+      <li><a href="playlists.html">WORKS</a></li>
+      <li><a href="blog.html">BLOG</a></li>
+      <li><a href="about.html">ABOUT</a></li>
+    </ul>
+  </nav>
 
-    <!-- Timer Added Below Nav Bar -->
-    <div id="date-time"></div>
+  <div id="date-time"></div>
 
-    <main class="container">
-        <h1>Welcome to craiko.net</h1>
-        <p class="subtitle">Perfection is possible.</p>
+  <main class="container">
+    <h1>Welcome to craiko.net</h1>
+    <p class="subtitle">Perfection is possible.</p>
 
-        <div class="image-wrapper">
-            <img src="ascension.jpg" alt="Homepage Image">
-        </div>
+    <div class="image-wrapper">
+      <img src="ascension.jpg" alt="Homepage Image" loading="lazy" decoding="async" />
+    </div>
 
-        <div class="happy-link">
-            <a href="https://www.youtube.com/@craiko678/featured" target="_blank">CLICK ON ME TO BE HAPPY</a>
-        </div>
-    </main>
+    <div class="happy-link">
+      <a href="https://www.youtube.com/@craiko678/featured" target="_blank" rel="noopener" class="button-link glass-btn--blue">
+        CLICK ON ME TO BE HAPPY
+      </a>
+    </div>
+  </main>
 
-    <script src="script.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>

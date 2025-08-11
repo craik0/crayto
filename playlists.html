@@ -23,11 +23,19 @@
             width: 250px;
         }
 
-        .work-item img {
+        .image-wrapper {
             width: 250px;
             height: 250px;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .work-item img {
+            width: 100%;
+            height: 100%;
             object-fit: cover;
             border-radius: 10px;
+            display: block;
         }
 
         .work-item p {
@@ -72,23 +80,33 @@
 
         <div class="works-row">
             <a href="https://www.youtube.com/@craiko678" class="work-item" style="text-decoration: none;">
-                <img src="YT.jpg" alt="YouTube Channel">
+                <div class="image-wrapper glass glass--tight">
+                    <img src="YT.jpg" alt="YouTube Channel" loading="lazy" decoding="async" width="250" height="250">
+                </div>
                 <p>YOUTUBE</p>
             </a>
             <a href="https://x.com/Craiko6" class="work-item" style="text-decoration: none;">
-                <img src="angel.jpg" alt="X Platform">
+                <div class="image-wrapper glass glass--tight">
+                    <img src="angel.jpg" alt="X Platform" loading="lazy" decoding="async" width="250" height="250">
+                </div>
                 <p>X</p>
             </a>
             <a href="embrace_happiness.html" class="work-item" style="text-decoration: none;">
-                <img src="lost.jpg" alt="Embrace Happiness">
+                <div class="image-wrapper glass glass--tight">
+                    <img src="lost.jpg" alt="Embrace Happiness" loading="lazy" decoding="async" width="250" height="250">
+                </div>
                 <p>EMBRACE HAPPINESS</p>
             </a>
             <a href="5-44.html" class="work-item" style="text-decoration: none;">
-                <img src="me.jpg" alt="5:44 Cover">
+                <div class="image-wrapper glass glass--tight">
+                    <img src="me.jpg" alt="5:44 Cover" loading="lazy" decoding="async" width="250" height="250">
+                </div>
                 <p>5:44</p>
             </a>
             <a href="craiko-deltarune.html" class="work-item" style="text-decoration: none;">
-                <img src="delt.jpeg" alt="Deltarune LP">
+                <div class="image-wrapper glass glass--tight">
+                    <img src="delt.jpeg" alt="Deltarune LP" loading="lazy" decoding="async" width="250" height="250">
+                </div>
                 <p>DELTARUNE LP</p>
             </a>
         </div>
