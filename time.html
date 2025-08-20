@@ -9,7 +9,16 @@
   <link rel="stylesheet" href="time/style.css">
 </head>
 <body>
-  <div class="wrap">
+  <nav class="navbar glassy">
+    <a href="index.html" class="logo">Craiko</a>
+    <ul class="nav-links">
+      <li><a href="/videos.html">Videos</a></li>
+      <li><a href="/blog.html">Blog</a></li>
+      <li><a href="/works.html">Works</a></li>
+    </ul>
+  </nav>
+  <div style="margin-top:100px;">
+    <div class="wrap">
     <canvas id="game" width="960" height="540"></canvas>
     <div class="hud">
       <div class="left">
@@ -27,6 +36,7 @@
         <button id="musicBtn" title="Toggle music">Music</button>
         <button id="reset">Reset</button>
       </div>
+    </div>
     </div>
   </div>
   <script type="module" src="time/main.js"></script>
