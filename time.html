@@ -35,6 +35,14 @@
       </div>
     </div>
 </div>
+  <div class="mobile-warning" style="text-align:center; margin:20px; display:none; font-weight:bold; color:red;">
+    DREAD IS MADE FOR PC.
+  </div>
+  <script>
+    if (/Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent)) {
+      document.querySelector('.mobile-warning').style.display = 'block';
+    }
+  </script>
   <div class="back-container">
     <a href="playlists.html" class="button-link glass-btn--blue">BACK</a>
   </div>
