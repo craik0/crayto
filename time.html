@@ -5,6 +5,32 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Play TIME</title>
   <link rel="stylesheet" href="styles.css">
+  <style>
+    @media (min-width: 769px) {
+      /* Desktop: show game, back button at bottom */
+      .mobile-warning { display: none !important; }
+    }
+    @media (max-width: 768px) {
+      /* Mobile: only show warning + back button */
+      .back-container { display: block; }
+    }
+    body.mobile-only {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 20px;
+      text-align: center;
+    }
+    .mobile-warning {
+      font-size: 1.2rem;
+      margin-bottom: 20px;
+    }
+    .back-container {
+      margin-top: 10px;
+    }
+  </style>
 </head>
 <body>
   <nav>
@@ -39,11 +65,20 @@
     DREAD IS MADE FOR PC.
   </div>
   <script>
-    if (/Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent)) {
-      document.querySelector('.mobile-warning').style.display = 'block';
-    }
+    (function(){
+      var isMobile = /Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+      if (isMobile) {
+        var wrap = document.querySelector('.wrap');
+        var warning = document.querySelector('.mobile-warning');
+        var back = document.querySelector('.back-container');
+        if (wrap) wrap.style.display = 'none';
+        if (warning) warning.style.display = 'block';
+        if (back) back.style.display = 'block';
+        document.body.classList.add('mobile-only');
+      }
+    })();
   </script>
-  <div class="back-container">
+  <div class="back-container" style="display:block; text-align:center;">
     <a href="playlists.html" class="button-link glass-btn--blue">BACK</a>
   </div>
   <script type="module" src="time/main.js"></script>
