@@ -1,0 +1,75 @@
+html, body {
+  height: 100%;
+  margin: 0;
+  background: #0f1220;
+  color: #e6e6e6;
+  font-family: system-ui, -apple-system, Segoe UI, sans-serif;
+}
+.wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding: 12px;
+}
+canvas {
+  width: min(960px, 95vw);
+  height: min(540px, 60vh);
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0,0,0,.35);
+  background: #11162a;
+}
+.hud {
+  width: min(960px, 95vw);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 14px;
+}
+.left, .right {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+kbd {
+  background: #1d2240;
+  border: 1px solid #2a2f57;
+  padding: 2px 6px;
+  border-radius: 6px;
+}
+button, .pill {
+  background: #1b2042;
+  border: 1px solid #2a2f57;
+  color: #e6e6e6;
+  padding: 6px 10px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+button:hover {
+  filter: brightness(1.2);
+}
+.palette {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+}
+.swatch {
+  width: 28px;
+  height: 28px;
+  display: grid;
+  place-items: center;
+  border-radius: 6px;
+  border: 1px solid #2a2f57;
+  background: #161b38;
+  cursor: pointer;
+  user-select: none;
+}
+.swatch.active {
+  outline: 2px solid #6aa9ff;
+}
+.badge {
+  font-size: 12px;
+  opacity: 0.8;
+}
