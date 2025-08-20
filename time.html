@@ -1,24 +1,22 @@
-
-
 <!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Play TIME</title>
-  <link rel="stylesheet" href="time/style.css">
+  <link rel="stylesheet" href="/styles.css">
 </head>
 <body>
-  <nav class="navbar glassy">
-    <a href="index.html" class="logo">Craiko</a>
-    <ul class="nav-links">
-      <li><a href="/videos.html">Videos</a></li>
-      <li><a href="/blog.html">Blog</a></li>
-      <li><a href="/works.html">Works</a></li>
-    </ul>
+  <nav class="glass">
+    <a href="/" class="nav-logo"><img src="imgs/logo.png" alt="Craiko Logo"></a>
+    <div class="nav-links">
+      <a href="/">Home</a>
+      <a href="/works.html">Works</a>
+      <a href="/blog.html">Blog</a>
+      <a href="/about.html">About</a>
+    </div>
   </nav>
-  <div style="margin-top:100px;">
-    <div class="wrap">
+  <div class="wrap">
     <canvas id="game" width="960" height="540"></canvas>
     <div class="hud">
       <div class="left">
@@ -36,7 +34,6 @@
         <button id="musicBtn" title="Toggle music">Music</button>
         <button id="reset">Reset</button>
       </div>
-    </div>
     </div>
   </div>
   <script type="module" src="time/main.js"></script>
