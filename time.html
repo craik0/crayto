@@ -4,17 +4,16 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Play TIME</title>
-  <link rel="stylesheet" href="/styles.css">
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <nav class="glass nav">
-    <a href="/" class="nav-logo"><img src="imgs/logo.png" alt="Craiko Logo"></a>
-    <div class="nav-links">
-      <a href="/">Home</a>
-      <a href="/works.html">Works</a>
-      <a href="/blog.html">Blog</a>
-      <a href="/about.html">About</a>
-    </div>
+  <nav>
+    <ul>
+      <li><a href="index.html">HOME</a></li>
+      <li><a href="playlists.html">WORKS</a></li>
+      <li><a href="blog.html">BLOG</a></li>
+      <li><a href="about.html">ABOUT</a></li>
+    </ul>
   </nav>
   <div class="wrap">
     <canvas id="game" width="480" height="270"></canvas>
@@ -35,6 +34,9 @@
         <button id="reset">Reset</button>
       </div>
     </div>
+</div>
+  <div class="back-container">
+    <a href="playlists.html" class="button-link glass-btn--blue">BACK</a>
   </div>
   <script type="module" src="time/main.js"></script>
 </body>
