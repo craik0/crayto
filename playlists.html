@@ -4,6 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>craiko.net - Works</title>
+    <!-- Critical resource preloads -->
+    <link rel="preload" href="styles.css" as="style">
+    <link rel="preload" href="script.js" as="script">
+    
+    <!-- DNS prefetch for external resources -->
+    <link rel="dns-prefetch" href="//www.youtube.com">
+    <link rel="dns-prefetch" href="//x.com">
+    
     <link rel="stylesheet" href="styles.css">
     <link rel="icon" type="image/png" href="craiko.png">
     <meta property="og:image" content="craiko.png">
@@ -48,6 +56,20 @@
             display: none;
         }
 
+        /* Section headers */
+        .works-section {
+            margin: 40px 0 20px 0;
+        }
+        
+        .works-section h2 {
+            font-size: 1.5rem;
+            color: var(--fg);
+            text-align: center;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+
+
         /* -- Mobile: stack in one column -- */
         @media (max-width: 768px) {
             .works-row {
@@ -78,49 +100,74 @@
     <main class="container">
         <h1>Creative Works</h1>
 
-        <div class="works-row">
-            <a href="https://www.youtube.com/@craiko678" class="work-item" style="text-decoration: none;">
-                <div class="image-wrapper glass glass--tight">
-                    <img src="YT.jpg" alt="YouTube Channel" loading="lazy" decoding="async" width="250" height="250">
-                </div>
-                <p>YOUTUBE</p>
-            </a>
-            <a href="https://x.com/Craiko6" class="work-item" style="text-decoration: none;">
-                <div class="image-wrapper glass glass--tight">
-                    <img src="angel.jpg" alt="X Platform" loading="lazy" decoding="async" width="250" height="250">
-                </div>
-                <p>X</p>
-            </a>
-            <a href="embrace_happiness.html" class="work-item" style="text-decoration: none;">
-                <div class="image-wrapper glass glass--tight">
-                    <img src="lost.jpg" alt="Embrace Happiness" loading="lazy" decoding="async" width="250" height="250">
-                </div>
-                <p>EMBRACE HAPPINESS</p>
-            </a>
-            <a href="5-44.html" class="work-item" style="text-decoration: none;">
-                <div class="image-wrapper glass glass--tight">
-                    <img src="me.jpg" alt="5:44 Cover" loading="lazy" decoding="async" width="250" height="250">
-                </div>
-                <p>5:44</p>
-            </a>
-            <a href="craiko-deltarune.html" class="work-item" style="text-decoration: none;">
-                <div class="image-wrapper glass glass--tight">
-                    <img src="delt.jpeg" alt="Deltarune LP" loading="lazy" decoding="async" width="250" height="250">
-                </div>
-                <p>DELTARUNE LP</p>
-            </a>
-            <a href="war.html" class="work-item" style="text-decoration: none;">
-              <div class="image-wrapper glass glass--tight">
-                <img src="DOVE.jpg" alt="WAR (not mine)" loading="lazy" decoding="async" width="250" height="250">
-              </div>
-              <p>WAR ARCHIVE (not mine)</p>
-            </a>
-            <a href="time.html" class="work-item" style="text-decoration: none;">
-              <div class="image-wrapper glass glass--tight">
-                <img src="in 2006.png" alt="DREAD" loading="lazy" decoding="async" width="250" height="250">
-              </div>
-              <p>DREAD</p>
-            </a>
+        <!-- Active Projects Section -->
+        <div class="works-section">
+            <h2>Active Projects</h2>
+            <div class="works-row">
+                <a href="https://www.youtube.com/@craiko678" class="work-item" style="text-decoration: none;">
+                    <div class="image-wrapper glass glass--tight">
+                        <img src="YT.jpg" alt="YouTube Channel" loading="lazy" decoding="async" width="250" height="250">
+                    </div>
+                    <p>YOUTUBE</p>
+                </a>
+                <a href="craiko-deltarune.html" class="work-item" style="text-decoration: none;">
+                    <div class="image-wrapper glass glass--tight">
+                        <img src="delt.jpeg" alt="Deltarune LP" loading="lazy" decoding="async" width="250" height="250">
+                    </div>
+                    <p>DELTARUNE LP</p>
+                </a>
+                <a href="embrace_happiness.html" class="work-item" style="text-decoration: none;">
+                    <div class="image-wrapper glass glass--tight">
+                        <img src="lost.jpg" alt="Embrace Happiness" loading="lazy" decoding="async" width="250" height="250">
+                    </div>
+                    <p>EMBRACE HAPPINESS</p>
+                </a>
+            </div>
+        </div>
+
+        <!-- Creative Works Section -->
+        <div class="works-section">
+            <h2>Creative Works</h2>
+            <div class="works-row">
+                <a href="5-44.html" class="work-item" style="text-decoration: none;">
+                    <div class="image-wrapper glass glass--tight">
+                        <img src="me.jpg" alt="5:44 Cover" loading="lazy" decoding="async" width="250" height="250">
+                    </div>
+                    <p>5:44</p>
+                </a>
+                <a href="time.html" class="work-item" style="text-decoration: none;">
+                    <div class="image-wrapper glass glass--tight">
+                        <img src="in 2006.png" alt="DREAD" loading="lazy" decoding="async" width="250" height="250">
+                    </div>
+                    <p>DREAD</p>
+                </a>
+            </div>
+        </div>
+
+        <!-- Social & External Section -->
+        <div class="works-section">
+            <h2>Social & External</h2>
+            <div class="works-row">
+                <a href="https://x.com/Craiko6" class="work-item" style="text-decoration: none;">
+                    <div class="image-wrapper glass glass--tight">
+                        <img src="angel.jpg" alt="X Platform" loading="lazy" decoding="async" width="250" height="250">
+                    </div>
+                    <p>X</p>
+                </a>
+            </div>
+        </div>
+
+        <!-- Archives & Collections Section -->
+        <div class="works-section">
+            <h2>Archives & Collections</h2>
+            <div class="works-row">
+                <a href="war.html" class="work-item" style="text-decoration: none;">
+                    <div class="image-wrapper glass glass--tight">
+                        <img src="DOVE.jpg" alt="WAR (not mine)" loading="lazy" decoding="async" width="250" height="250">
+                    </div>
+                    <p>WAR ARCHIVE (not mine)</p>
+                </a>
+            </div>
         </div>
     </main>
 

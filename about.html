@@ -4,10 +4,121 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About - craiko.net</title>
+    <!-- Critical resource preloads -->
+    <link rel="preload" href="styles.css" as="style">
+    <link rel="preload" href="about-image.jpg" as="image" type="image/jpeg">
+    
     <link rel="stylesheet" href="styles.css">
     <link rel="icon" type="image/png" href="craiko.png">
     <meta property="og:image" content="craiko.png">
     <meta name="twitter:image" content="craiko.png">
+    
+    <style>
+        /* About page specific styles */
+        .about-hero {
+            text-align: center;
+            max-width: 900px;
+            margin: 30px auto;
+            padding: 40px 20px;
+        }
+        
+        .about-title {
+            font-size: clamp(2rem, 3vw, 2.5rem);
+            color: var(--fg);
+            margin: 0 0 10px 0;
+            font-weight: bold;
+        }
+        
+        .about-subtitle {
+            color: var(--muted);
+            font-size: 1.1rem;
+            margin: 0;
+        }
+        
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 30px;
+            max-width: 1000px;
+            margin: 30px auto;
+            padding: 0 20px;
+        }
+        
+        @media (min-width: 768px) {
+            .about-grid {
+                grid-template-columns: 300px 1fr;
+                gap: 40px;
+            }
+        }
+        
+        .about-image-section {
+            text-align: center;
+            margin: 0;
+        }
+        
+        .about-img {
+            width: 100%;
+            max-width: 268px;
+            border-radius: 10px;
+            transition: transform 0.3s;
+            animation: fadeIn 0.5s ease-in-out both;
+        }
+        
+        .about-img:hover {
+            transform: scale(1.03);
+        }
+        
+        .about-caption {
+            margin-top: 10px;
+            font-style: italic;
+            color: var(--muted);
+            font-size: 0.9rem;
+        }
+        
+        .about-content {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+        
+        .about-section h2 {
+            font-size: 1.25rem;
+            margin: 0 0 8px 0;
+            color: var(--fg);
+            font-weight: bold;
+        }
+        
+        .about-section p {
+            line-height: 1.7;
+            margin-bottom: 16px;
+            color: var(--fg);
+        }
+        
+        .about-section p:last-child {
+            margin-bottom: 0;
+        }
+        
+        .about-cta {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin-top: 10px;
+        }
+        
+        @media (max-width: 768px) {
+            .about-cta {
+                justify-content: center;
+            }
+            
+            .about-grid {
+                text-align: center;
+            }
+            
+            .about-content {
+                text-align: left;
+            }
+        }
+    </style>
 </head>
 <body>
     <nav>
@@ -19,18 +130,38 @@
         </ul>
     </nav>
 
-    <main class="about-content">
-        <img src="about-image.jpg" alt="Craiko Saluting" class="about-img">
-        <div class="about-text">
-            <p>Hello, I’m Craiko, an 18-year-old YouTuber. I started my YouTube journey by creating Let’s Play videos of Wii U games, recording them on my mom’s iPad. Although I had some initial success, I had to shut down my account.</p>
-            <p>During COVID, I revived my channel with my Gamertag, Craiko, and uploaded videos occasionally. However, I’ve decided to take YouTube seriously and have a lot of fun doing it.</p>
+    <!-- Main Content Grid -->
+    <main class="about-grid">
+        <figure class="about-image-section">
+            <img src="about-image.jpg" alt="Craiko Saluting" class="about-img img-glass" 
+                 loading="eager" decoding="async" fetchpriority="high" 
+                 width="268" height="268">
+            <figcaption class="about-caption">Ready for whatever comes next</figcaption>
+        </figure>
+        
+        <div class="about-content">
+            <section class="about-section">
+                <h2>Who I Am</h2>
+                <p>Hello, I'm Craiko, an 18-year-old YouTuber. I started my YouTube journey by creating Let's Play videos of Wii U games, recording them on my mom's iPad. Although I had some initial success, I had to shut down my account.</p>
+                <p>During COVID, I revived my channel with my Gamertag, Craiko, and uploaded videos occasionally. However, I've decided to take YouTube seriously and have a lot of fun doing it.</p>
+            </section>
 
-            <br> <!-- Adds Space -->
+            <section class="about-section">
+                <h2>Why This Site</h2>
+                <p>I created this website to share my thoughts with the world and because I hate that YouTube won't let me customize my page and YT posts are lacking. I will be updating frequently, and I am setting up a Discord server so I can talk to people who watch my videos and facilitate philosophical discussions.</p>
+            </section>
 
-            <p>
-                I created this website to share my thoughts with the world and because I hate that YouTube won't let me customize my page and YT posts are lacking.  
-                I will be updating frequently, and I am setting up a Discord server so I can talk to people who watch my videos and facilitate philosophical discussions.
-            </p>
+            <section class="about-section">
+                <h2>What's Next</h2>
+                <p>I'm actively working on new content, developing my series "Embrace Happiness," and exploring creative projects that blend gaming, storytelling, and authentic connection with my audience.</p>
+            </section>
+
+            <!-- Call to Action Buttons -->
+            <div class="about-cta">
+                <a href="https://www.youtube.com/@craiko678" class="button-link glass-btn--blue" target="_blank" rel="noopener noreferrer">YouTube</a>
+                <a href="blog.html" class="button-link">Blog</a>
+                <a href="playlists.html" class="button-link">Works</a>
+            </div>
         </div>
     </main>
 </body>

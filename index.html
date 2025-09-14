@@ -5,6 +5,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <meta name="description" content="Craiko — video essays, Deltarune Let's Plays, and more. Perfection is possible.">
   <title>craiko.net - Home</title>
+  <!-- Critical resource preloads -->
+  <link rel="preload" href="styles.css" as="style">
+  <link rel="preload" href="script.js" as="script">
+  <link rel="preload" href="ascension.jpg" as="image" type="image/jpeg">
+  
+  <!-- DNS prefetch for external resources -->
+  <link rel="dns-prefetch" href="//www.youtube.com">
+  <link rel="dns-prefetch" href="//youtu.be">
+  
   <link rel="stylesheet" href="styles.css" />
   <link rel="icon" type="image/png" href="craiko.png" />
   <style>
@@ -88,7 +97,10 @@
     <p class="subtitle">Perfection is possible.</p>
 
     <div class="image-wrapper">
-      <img src="ascension.jpg" alt="Homepage Image" loading="lazy" decoding="async" />
+      <img src="ascension.jpg" alt="Homepage Image" 
+           loading="eager" decoding="async" 
+           fetchpriority="high" 
+           width="612" height="612" />
     </div>
 
     <div class="happy-link">
