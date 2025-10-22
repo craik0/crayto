@@ -1,0 +1,23 @@
+User-agent: *
+Allow: /
+
+# Block access to sensitive directories
+Disallow: /data/
+Disallow: /.git/
+Disallow: /node_modules/
+
+# Allow important resources
+Allow: /styles.css
+Allow: /script.js
+Allow: /images/
+Allow: /*.jpg
+Allow: /*.jpeg
+Allow: /*.png
+Allow: /*.webp
+Allow: /*.gif
+
+# Sitemap location
+Sitemap: https://craiko.net/sitemap.xml
+
+# Crawl delay to be respectful
+Crawl-delay: 1

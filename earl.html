@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>EARL by Earl Sweatshirt</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    /* Responsive media wrapper for the embed */
+    .embed-wrap { position: relative; width: 100%; max-width: 900px; margin: 0 auto; }
+    .embed-wrap::before { content: ""; display: block; padding-top: 56.25%; }
+    .embed-wrap iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; border-radius: 16px; }
+
+    @media (max-width: 768px) {
+      main.container { padding: 0 14px; }
+      h1 { font-size: 1.4rem; line-height: 1.2; }
+      #date-time { margin-top: 8px; }
+      main.container p { font-size: 0.95rem; line-height: 1.55; }
+      .mobile-fullbtn { display: block; width: 100%; max-width: 320px; margin: 14px auto 0; text-align: center; }
+    }
+
+    /* Track listing styles */
+    .track-list {
+      max-width: 600px;
+      margin: 30px auto;
+      background: var(--accentSoft);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(8px) saturate(140%);
+      -webkit-backdrop-filter: blur(8px) saturate(140%);
+    }
+    
+    .track-list h3 {
+      font-size: 1.1rem;
+      color: var(--accent);
+      margin-bottom: 15px;
+      text-align: center;
+    }
+    
+    .track {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+      font-size: 0.9rem;
+      line-height: 1.4;
+    }
+    
+    .track:last-child {
+      border-bottom: none;
+    }
+    
+    .track-title {
+      font-weight: bold;
+      color: var(--fg);
+      flex: 1;
+      text-align: left;
+      min-width: 0;
+    }
+    
+    .track-credits {
+      color: var(--muted);
+      font-size: 0.8rem;
+      text-align: right;
+      margin-left: 20px;
+      flex-shrink: 0;
+      white-space: nowrap;
+    }
+    
+    @media (max-width: 768px) {
+      .track {
+        flex-direction: column;
+        gap: 4px;
+      }
+      .track-credits {
+        text-align: left;
+        margin-left: 0;
+        font-size: 0.75rem;
+      }
+    }
+  </style>
+</head>
+<body class="site-body">
+  <nav>
+    <ul>
+      <li><a href="index.html">HOME</a></li>
+      <li><a href="playlists.html">WORKS</a></li>
+      <li><a href="blog.html">BLOG</a></li>
+      <li><a href="about.html">ABOUT</a></li>
+    </ul>
+  </nav>
+  <div id="date-time"></div>
+
+  <main class="container">
+    <h1>EARL BY EARL SWEATSHIRT [2010]</h1>
+    <div class="embed-wrap">
+      <iframe style="border-radius: 24px" src="https://untitled.stream/embed/jL2dAOWm4EZf" width="100%" height="344" allowfullscreen allow="picture-in-picture" frameborder="0" loading="lazy"></iframe>
+    </div>
+    <p style="font-size:0.8em; margin-top:10px;">1.0 this is for archival purposes only, if there are any problems please reach out to me on <a href="https://x.com/Craiko6">X</a> and I will resolve them</p>
+    <p style="margin-top:20px;">EARL is the debut mixtape by Earl Sweatshirt, released in 2010 when he was just 16 years old. The project introduced the world to Earl's dark, introspective lyricism and complex wordplay that would define his career. Raw, unfiltered, and visceral, EARL captures a teenage prodigy grappling with depression, violence, and nihilism over lo-fi production. This archive preserves the mixtape in its best available quality.</p>
+    
+    <div class="track-list">
+      <h3>Track Listing</h3>
+      <div class="track">
+        <span class="track-title">Thisniggaugly</span>
+        <span class="track-credits">prod. tyler the creator</span>
+      </div>
+      <div class="track">
+        <span class="track-title">Earl</span>
+        <span class="track-credits">prod. tyler the creator</span>
+      </div>
+      <div class="track">
+        <span class="track-title">Couch (feat. Ace Creator)</span>
+        <span class="track-credits">prod. tyler the creator</span>
+      </div>
+      <div class="track">
+        <span class="track-title">Kill</span>
+        <span class="track-credits">prod. tyler the creator</span>
+      </div>
+      <div class="track">
+        <span class="track-title">Wakeupfagg*t</span>
+        <span class="track-credits">prod. tyler the creator</span>
+      </div>
+      <div class="track">
+        <span class="track-title">Luper</span>
+        <span class="track-credits">prod. tyler the creator</span>
+      </div>
+      <div class="track">
+        <span class="track-title">epaR (feat. Vince Staples)</span>
+        <span class="track-credits">prod. left brain</span>
+      </div>
+      <div class="track">
+        <span class="track-title">Moonlight (feat. Hodgy Beats)</span>
+        <span class="track-credits">prod. tyler the creator</span>
+      </div>
+      <div class="track">
+        <span class="track-title">Pigions (feat. Wolf Haley)</span>
+        <span class="track-credits">prod. tyler the creator</span>
+      </div>
+      <div class="track">
+        <span class="track-title">Stapleton</span>
+        <span class="track-credits">prod. beatboy</span>
+      </div>
+    </div>
+</main>
+  <div class="back-container" style="text-align:center; margin:20px;">
+    <a href="playlists.html" class="button-link glass-btn--blue mobile-fullbtn">BACK</a>
+  </div>
+<script src="script.js"></script>
+</body>
+</html>

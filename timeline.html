@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Timeline - craiko.net</title>
+    <meta name="description" content="Complete timeline of Craiko's YouTube journey from 2019 to 2025, featuring video essays, gaming content, and creative projects">
+    <link rel="canonical" href="https://craiko.net/timeline.html">
+    
+    <!-- Critical resource preloads -->
+    <link rel="preload" href="styles.css" as="style">
+    <link rel="preload" href="data/timeline.json" as="fetch" type="application/json" crossorigin>
+    
+    <!-- DNS prefetch for external resources -->
+    <link rel="dns-prefetch" href="//www.youtube.com">
+    <link rel="dns-prefetch" href="//img.youtube.com">
+    
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/png" href="craiko.png">
+    <meta property="og:image" content="craiko.png">
+    <meta name="twitter:image" content="craiko.png">
+    
+    <style>
+        /* Timeline specific styles */
+        .timeline-hero {
+            text-align: center;
+            max-width: 900px;
+            margin: 30px auto;
+            padding: 40px 20px;
+        }
+        
+        .timeline-title {
+            font-size: clamp(2rem, 3vw, 2.5rem);
+            color: var(--fg);
+            margin: 0 0 10px 0;
+            font-weight: bold;
+        }
+        
+        .timeline-subtitle {
+            color: var(--muted);
+            font-size: 1.1rem;
+            margin: 0;
+        }
+        
+        .timeline-filters {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin: 30px auto;
+            max-width: 800px;
+        }
+        
+        .filter-btn {
+            padding: 8px 16px;
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            background: var(--accentSoft);
+            color: var(--fg);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: all 0.2s ease;
+            cursor: pointer;
+            backdrop-filter: blur(8px) saturate(140%);
+            -webkit-backdrop-filter: blur(8px) saturate(140%);
+        }
+        
+        .filter-btn.active {
+            background: var(--accent);
+            color: white;
+            border-color: var(--accent);
+        }
+        
+        .filter-btn:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+        
+        .timeline-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .year-section {
+            margin-bottom: 50px;
+        }
+        
+        .year-header {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: var(--accent);
+            margin-bottom: 30px;
+            text-align: center;
+            position: relative;
+        }
+        
+        .year-header::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 2px;
+            background: var(--accent);
+        }
+        
+        .timeline-items {
+            display: grid;
+            gap: 20px;
+        }
+        
+        .timeline-item {
+            display: flex;
+            gap: 20px;
+            padding: 15px 0;
+            border-bottom: 1px solid var(--border);
+            transition: opacity 0.2s ease;
+        }
+        
+        .timeline-item:hover {
+            opacity: 0.8;
+        }
+        
+        .timeline-item:last-child {
+            border-bottom: none;
+        }
+        
+        .timeline-date {
+            min-width: 140px;
+            color: var(--muted);
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+        
+        .timeline-title {
+            color: var(--fg);
+            font-size: 1rem;
+            font-weight: 500;
+        }
+        
+        .stats-overview {
+            background: var(--accentSoft);
+            border: 1px solid var(--border);
+            border-radius: 15px;
+            padding: 30px 20px;
+            margin: 40px auto;
+            text-align: center;
+            backdrop-filter: blur(8px) saturate(140%);
+            -webkit-backdrop-filter: blur(8px) saturate(140%);
+            box-shadow: var(--shadow);
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .stat-item {
+            text-align: center;
+        }
+        
+        .stat-number {
+            font-size: 2rem;
+            font-weight: bold;
+            color: var(--accent);
+            display: block;
+        }
+        
+        .stat-label {
+            color: var(--muted);
+            font-size: 0.9rem;
+        }
+        
+        @media (max-width: 768px) {
+            .item-header {
+                flex-direction: column;
+            }
+            
+            .item-thumbnail {
+                width: 100%;
+                height: auto;
+                aspect-ratio: 16/9;
+            }
+            
+            .item-meta {
+                flex-direction: column;
+                gap: 4px;
+            }
+            
+            .timeline-filters {
+                padding: 0 20px;
+            }
+        }
+    </style>
+    
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "ItemList",
+        "name": "Craiko's YouTube Timeline",
+        "description": "Complete chronological timeline of Craiko's YouTube content from 2019 to 2025",
+        "url": "https://craiko.net/timeline.html",
+        "numberOfItems": 23,
+        "itemListOrder": "https://schema.org/ItemListOrderDescending"
+    }
+    </script>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="index.html">HOME</a></li>
+            <li><a href="playlists.html">WORKS</a></li>
+            <li><a href="blog.html">BLOG</a></li>
+            <li><a href="about.html">ABOUT</a></li>
+        </ul>
+    </nav>
+
+    <div id="date-time"></div>
+
+    <!-- Hero Section -->
+    <section class="timeline-hero glass glass--loose">
+        <h1 class="timeline-title">Channel Timeline</h1>
+        <p class="timeline-subtitle">Key milestones from 2019 to 2025</p>
+    </section>
+
+
+    <!-- Timeline Content -->
+    <main class="timeline-container">
+        <div id="timeline-content">
+            <!-- Timeline will be populated by JavaScript -->
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+    <script>
+        // Timeline functionality
+        let timelineData = [];
+        let currentFilter = 'all';
+
+        async function loadTimeline() {
+            try {
+                const response = await fetch('data/timeline.json');
+                timelineData = await response.json();
+                renderTimeline();
+            } catch (error) {
+                console.error('Failed to load timeline:', error);
+                document.getElementById('timeline-content').innerHTML = '<p>Failed to load timeline data.</p>';
+            }
+        }
+
+        function renderTimeline() {
+            const container = document.getElementById('timeline-content');
+            const filteredData = filterData(timelineData);
+            
+            container.innerHTML = `
+                <div class="timeline-items">
+                    ${filteredData.map(item => createTimelineItem(item)).join('')}
+                </div>
+            `;
+        }
+
+        function createTimelineItem(item) {
+            const date = new Date(item.date);
+            let formattedDate = date.toLocaleDateString('en-US', { 
+                month: 'long', 
+                day: 'numeric',
+                year: 'numeric'
+            });
+            
+            // Make everything lowercase except month
+            const parts = formattedDate.split(' ');
+            const month = parts[0]; // Keep month capitalized
+            const day = parts[1].toLowerCase();
+            const year = parts[2].toLowerCase();
+            formattedDate = `${month} ${day} ${year}`;
+
+            return `
+                <div class="timeline-item" data-year="${date.getFullYear()}">
+                    <div class="timeline-date">${formattedDate}</div>
+                    <div class="timeline-title">${item.title}</div>
+                </div>
+            `;
+        }
+
+        function filterData(data) {
+            if (currentFilter === 'all') return data;
+            
+            if (currentFilter === 'high') {
+                return data.filter(item => item.significance === 'high');
+            }
+            
+            // Year filters
+            if (['2025', '2023', '2021', '2020', '2019'].includes(currentFilter)) {
+                return data.filter(item => {
+                    const year = new Date(item.date).getFullYear();
+                    return year.toString() === currentFilter;
+                });
+            }
+            
+            return data;
+        }
+
+        function initializeFilters() {
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            
+            filterButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    // Remove active class from all buttons
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    
+                    // Add active class to clicked button
+                    button.classList.add('active');
+                    
+                    // Update current filter and re-render
+                    currentFilter = button.dataset.filter;
+                    renderTimeline();
+                });
+            });
+        }
+
+        // Initialize when DOM is ready
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', () => {
+                loadTimeline();
+                initializeFilters();
+            });
+        } else {
+            loadTimeline();
+            initializeFilters();
+        }
+    </script>
+</body>
+</html>
