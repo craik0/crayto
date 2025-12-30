@@ -406,6 +406,76 @@ button.glass-btn--blue:hover {
   border-color: var(--accent);
 }
 
+/* Hero Video (Latest YouTube Upload) */
+.hero-video {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px auto;
+    width: 100%;
+    max-width: 612px;
+}
+
+.hero-video-card {
+    display: block;
+    position: relative;
+    width: 100%;
+    text-decoration: none;
+    border-radius: 8px;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+}
+
+.hero-video-card:hover {
+    transform: scale(1.03);
+}
+
+.hero-video-img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+}
+
+.hero-play-icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80px;
+    height: 80px;
+    background: rgba(0,0,0,0.6);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-size: 2rem;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+}
+
+.hero-video-card:hover .hero-play-icon {
+    opacity: 1;
+}
+
+.hero-fallback {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 200px;
+    background: var(--accentSoft);
+    border: 1px solid var(--border);
+    backdrop-filter: blur(8px) saturate(140%);
+    -webkit-backdrop-filter: blur(8px) saturate(140%);
+}
+
+.hero-fallback-text {
+    font-size: 1.2rem;
+    color: var(--fg);
+    font-weight: 500;
+}
+
 /* Responsive Mobile Styles */
 @media (max-width: 768px) {
     /* Stack works items vertically in one column */
@@ -431,4 +501,9 @@ button.glass-btn--blue:hover {
         align-items: center;
     }
     .happy-link a { margin: 0 auto; }
+    
+    .hero-video {
+        max-width: 100%;
+        padding: 0 20px;
+    }
 }

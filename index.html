@@ -8,7 +8,6 @@
   <!-- Critical resource preloads -->
   <link rel="preload" href="styles.css" as="style">
   <link rel="preload" href="script.js" as="script">
-  <link rel="preload" href="ascension.jpg" as="image" type="image/jpeg">
   
   <!-- DNS prefetch for external resources -->
   <link rel="dns-prefetch" href="//www.youtube.com">
@@ -92,12 +91,7 @@
     <h1>Welcome to craiko.net</h1>
     <p class="subtitle">Perfection is possible.</p>
 
-    <div class="image-wrapper">
-      <img src="ascension.jpg" alt="Homepage Image" 
-           loading="eager" decoding="async" 
-           fetchpriority="high" 
-           width="612" height="612" />
-    </div>
+    <div id="latest-video" class="hero-video"></div>
 
     <div class="happy-link">
       <a href="https://www.youtube.com/@craiko678/featured" target="_blank" rel="noopener" class="button-link glass-btn--blue">
